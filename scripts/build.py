@@ -2,7 +2,7 @@
 """Build static pages, portable JSON and two RSS feeds without dependencies."""
 from __future__ import annotations
 import argparse
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from email.utils import format_datetime
 import hashlib
 import json
@@ -51,6 +51,72 @@ def deduplicate(items: list[dict], source_map: dict) -> list[dict]:
     return sorted(result, key=lambda i: i.get('published_at') or '', reverse=True)
 
 
+def validate_digests(document: dict, now: datetime) -> list[dict]:
+    """Publication gate: candidates cannot silently become editorial content."""
+    editions, seen_dates, seen_ids, seen_urls = [], set(), set(), set()
+    beijing = timezone(timedelta(hours=8))
+    for raw in document.get('editions', []):
+        if raw.get('status') != 'published':
+            continue
+        edition = dict(raw)
+        date_text = edition.get('date', '')
+        try:
+            day = datetime.strptime(date_text, '%Y-%m-%d').replace(tzinfo=beijing)
+        except (TypeError, ValueError):
+            raise ValueError('Published editions need a YYYY-MM-DD Beijing date')
+        if date_text in seen_dates:
+            raise ValueError('Only one published edition is allowed per Beijing date')
+        seen_dates.add(date_text)
+        published = parse_date(edition.get('published_at'))
+        if not published or published > now + timedelta(minutes=5):
+            raise ValueError('Edition publication time must be real and not in the future')
+        if published.astimezone(beijing).date() < day.date():
+            raise ValueError('Do not publish an edition dated in the future')
+        items = edition.get('items', [])
+        if not isinstance(items, list) or not 1 <= len(items) <= 5:
+            raise ValueError('A published daily digest must contain 1 to 5 reviewed items')
+        cleaned = []
+        for raw_item in items:
+            item = dict(raw_item)
+            if item.get('review_status') != 'reviewed':
+                raise ValueError('Only explicitly reviewed stories can be published')
+            for field in ('title_zh', 'what_zh', 'why_zh'):
+                text = item.get(field, '')
+                if not isinstance(text, str) or not re.search(r'[\u4e00-\u9fff]', text):
+                    raise ValueError(f'{field} must contain an original Chinese editorial summary')
+            if len(item['title_zh']) > 70 or len(item['what_zh']) > 350 or len(item['why_zh']) > 220:
+                raise ValueError('Digest copy exceeds concise editorial limits')
+            url = canonical_url(item.get('url', ''))
+            if not url or not url.startswith('https://'):
+                raise ValueError('Reviewed stories need an HTTPS original-source URL')
+            if item.get('source_language') not in ('zh', 'en') or not item.get('source_name') or not item.get('original_title'):
+                raise ValueError('Reviewed stories need an original title, source and a supported source language (zh/en)')
+            if item.get('category') not in ('ai', 'hardware', 'software'):
+                raise ValueError('Story category must be ai, hardware or software')
+            story_id = item.get('id', '')
+            if not re.fullmatch(r'[a-z0-9][a-z0-9-]{5,80}', story_id):
+                raise ValueError('Use a stable story ID, never a title or edition position')
+            if story_id in seen_ids or url in seen_urls:
+                raise ValueError('Do not repeat the same story across published editions')
+            checked = parse_date(item.get('checked_at'))
+            source_date = parse_date(item.get('source_published_at'))
+            if not checked or checked > published + timedelta(minutes=5):
+                raise ValueError('Each story needs a check timestamp before publication')
+            if not source_date or source_date > checked + timedelta(hours=24):
+                raise ValueError('Each news story needs a verified source publication date')
+            if source_date < day - timedelta(days=7):
+                raise ValueError('News older than 7 days belongs in evergreen discoveries')
+            seen_ids.add(story_id); seen_urls.add(url)
+            item['url'] = url
+            item['title'] = item['title_zh']
+            item['edition_date'] = date_text
+            item['published_at'] = stamp(published)
+            cleaned.append(item)
+        edition['items'] = cleaned
+        editions.append(edition)
+    return sorted(editions, key=lambda e: e['date'], reverse=True)
+
+
 def rss(items: list[dict], title: str, description: str, site_url: str, filename: str, now: datetime) -> bytes:
     root = ET.Element('rss', version='2.0')
     channel = ET.SubElement(root, 'channel')
@@ -63,14 +129,22 @@ def rss(items: list[dict], title: str, description: str, site_url: str, filename
         ET.SubElement(channel, f'{{{ATOM}}}link', href=site_url + filename, rel='self', type='application/rss+xml')
     for item in items[:100]:
         entry = ET.SubElement(channel, 'item')
-        ET.SubElement(entry, 'title').text = item['title']
+        ET.SubElement(entry, 'title').text = item.get('title_zh') or item['title']
         ET.SubElement(entry, 'link').text = item['url']
         ET.SubElement(entry, 'guid', isPermaLink='false').text = item.get('id') or hashlib.sha256(item['url'].encode()).hexdigest()
         date = parse_date(item.get('published_at') or item.get('added_at'))
         if date:
             ET.SubElement(entry, 'pubDate').text = format_datetime(date)
-        names = '、'.join(s['name'] for s in item.get('sources', []))
-        desc = item.get('note') or (f'来源：{names}。请查看原文；本条为来源标题，不代表独立核验。' if names else '')
+        if item.get('what_zh'):
+            # RSS date is our digest publication; source publication is explicitly separate.
+            desc = (f"发生了什么：{item['what_zh']}\n\n为什么值得看（编辑判断）：{item['why_zh']}"
+                    f"\n\n来源：{item['source_name']}。原文发布时间：{item['source_published_at']}。"
+                    f"\n{'中文' if item.get('source_language') == 'zh' else '英文'}原文：{item['url']}")
+            if item.get('caveat_zh'):
+                desc += f"\n核对说明：{item['caveat_zh']}"
+        else:
+            names = '、'.join(source['name'] for source in item.get('sources', []))
+            desc = item.get('note') or (f'来源：{names}。请查看原文。' if names else '')
         ET.SubElement(entry, 'description').text = desc
         ET.SubElement(entry, 'category').text = item['category']
     ET.indent(root, space='  ')
@@ -91,16 +165,21 @@ def build(root: Path, site_url: str = '', now: datetime | None = None):
     status = read_json(root / 'data/source_status.json', {'sources': {}})
     discoveries = read_json(root / 'data/discoveries.json', {'items': []})['items']
     source_map = {s['id']: s for s in config['sources'] if s.get('enabled', True)}
-    raw_items = [i for key, source in state.get('by_source', {}).items() if key in source_map for i in source['items']]
-    news = deduplicate(raw_items, source_map)
+    editorial = read_json(root / 'data/digests.json', {'editions': []})
+    editions = validate_digests(editorial, now)
+    news = [item for edition in editions for item in edition['items']]
+    candidate_count = sum(len(source.get('items', [])) for source in state.get('by_source', {}).values())
     sources = [{**s, **status.get('sources', {}).get(s['id'], {'state': 'not_run', 'last_success_at': None, 'item_count': 0})}
                for s in source_map.values()]
     for item in discoveries:
         if not canonical_url(item.get('url', '')) or not item.get('title') or not item.get('verified_at'):
             raise ValueError('Every discovery needs a safe URL, title, and verification date')
-    payload = {'schema_version': 1, 'built_at': stamp(now), 'last_success_at': state.get('last_success_at'),
+    payload = {'schema_version': 2, 'built_at': stamp(now), 'last_success_at': state.get('last_success_at'),
                'attempted_at': status.get('attempted_at'), 'site_url': site_url,
-               'lookback_days': config.get('lookback_days', 14), 'news': news,
+               'timezone': 'Asia/Shanghai', 'max_daily_items': 5, 'editions': editions,
+               'latest_edition_date': editions[0]['date'] if editions else None,
+               'editorial_updated_at': editions[0]['published_at'] if editions else None,
+               'news': news,
                'discoveries': discoveries, 'sources': sources}
     out = root / 'public'
     out.mkdir(exist_ok=True)
@@ -111,11 +190,11 @@ def build(root: Path, site_url: str = '', now: datetime | None = None):
     # Inline local data supports an offline double-click preview, without fetch/CORS.
     embedded = json.dumps(payload, ensure_ascii=False).replace('<', '\\u003c').replace('\u2028', '\\u2028').replace('\u2029', '\\u2029')
     (out / 'data.js').write_text('window.TECH_DATA = ' + embedded + ';\n', encoding='utf-8')
-    (out / 'rss.xml').write_bytes(rss(news, '拾新 · 科技动态', 'AI、硬件和软件来源的更新标题。来源不等于独立核验。', site_url, 'rss.xml', now))
+    (out / 'rss.xml').write_bytes(rss(news, '拾新 · 每日中文精选', '每天最多五条经原文核对的中文科技摘要，覆盖国内外来源并附原文。编辑判断与事实分开。', site_url, 'rss.xml', now))
     evergreen = sorted(discoveries, key=lambda i: i.get('added_at', ''), reverse=True)
     (out / 'discoveries.xml').write_bytes(rss(evergreen, '拾新 · 常青发现', '不限发布时间的工具、项目和灵感。条目时间是收录时间，不是产品发布日期。', site_url, 'discoveries.xml', now))
     (out / '.nojekyll').touch()
-    print(f'Built {len(news)} news items, {len(discoveries)} discoveries, and two RSS feeds in {out}')
+    print(f'Built {len(editions)} curated editions / {len(news)} reviewed stories, {len(discoveries)} discoveries. Raw candidates are not published.')
     if not site_url:
         print('Local preview only: set SITE_URL at deployment for absolute RSS channel/self links.')
     return payload

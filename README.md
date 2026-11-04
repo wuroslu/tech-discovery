@@ -1,125 +1,94 @@
-# 拾新 · 科技观察站
+# 拾新 · 每日中文科技精选
 
-面向手机阅读的中文科技发现站。**最近动态**与**常青发现**各自独立，也分别提供 RSS。
+**每天少量中文摘要，附中文或英文原文。**最新一期最多五条，常青发现另放，不再默认展示几百条原始订阅标题。
 
-- 已上线站点：<https://wuroslu.github.io/tech-discovery/>
-- 动态订阅：<https://wuroslu.github.io/tech-discovery/rss.xml>
-- 常青发现：<https://wuroslu.github.io/tech-discovery/discoveries.xml>
+- 站点目标：<https://wuroslu.github.io/tech-discovery/>
+- 中文精选 RSS：<https://wuroslu.github.io/tech-discovery/rss.xml>
+- 常青发现 RSS：<https://wuroslu.github.io/tech-discovery/discoveries.xml>
 
-2026-11-04 07:18 UTC 已验证上述站点和两份 RSS 均正常访问；两份 RSS 分别包含 100 条动态与 10 条常青发现。
+部署状态以 GitHub Actions 最近运行和公开页面实际内容为准。更新代码后需检查页面与 RSS，不能只凭网址或本地构建结果判断上线状态。
 
-## 内容与边界
+## 阅读体验
 
-- 自动读取 8 个公开来源：OpenAI、Hugging Face、Google AI、Raspberry Pi、Arduino、Hackaday、GitHub Blog、Mozilla。
-- 仅保留原文标题、链接和来源时间。不抓取全文，不调用付费模型、搜索或翻译接口。**界面为中文，动态标题保持原文语言。**
-- 常青发现是独立维护的中文条目，已有 10 个官方来源支持的项目。记录收录日期和核对日期，不把旧项目当作新品。
-- 分类依据来源配置，URL 和长标题规则去重。**这是订阅聚合，不是逐条独立核验、完整性保证或“绝不漏报”的情报服务。**
-- 首次运行只拿到源站当前 RSS 中提供的条目，不能恢复已从上游消失的旧内容。
-- 默认显示近 14 天具有明确发布时间的动态。无发布时间的条目只出现在“全部缓存”，并明确标记；不会把抓取时间当成发布时间。
-- 页面显示最近尝试、最近成功时间及各来源状态。失败来源保留上次成功内容；其他来源继续正常更新。
-- 搜索、分类、时间范围、收藏全部在浏览器运行。收藏只存当前浏览器的 localStorage，不同步，不上传。
-- 无广告、无分析脚本、无外部字体或图片请求。打开原文后，目标网站自身的隐私政策仍适用；GitHub 也会按其政策处理托管访问。
+- 首页只显示一期，最多五条；旧期通过日期选择，不混成信息流。
+- 每条分别写“发生了什么”和“为什么值得看”，后者明确是编辑判断。
+- 中文标题与摘要、中外原文链接、原文发布日期、实际核对时间各自清楚标注。
+- 研究演示、开发者预览与正式产品不混淆。不将抓取时间包装成新闻发布时间。
+- 常青工具和项目独立维护、独立订阅，不把老项目当成今日新品。
+- 没有新稿时保留上期并标明日期，不用自动标题补位。
+- 无广告或分析脚本；收藏只在当前浏览器，不跨设备同步。目标来源和托管平台仍有各自隐私政策。
 
-## 本地使用
+## 架构
 
-只需 **Python 3.10+**，运行时无第三方 Python 或 npm 依赖。
+```text
+公开 RSS → data/news.json（候选缓存，不直接发布）
+                 ↓ 原文阅读、选择、中文编辑、核对
+           data/digests.json（唯一新闻发布入口）
+                 ↓ 结构/日期/上限/审核状态校验
+         首页 + public/data.json + rss.xml
+
+data/discoveries.json → 独立常青页面集合与 discoveries.xml
+```
+
+RSS中每条有中文事实摘要、编辑判断和对应原文。GUID取自稳定ID，编辑文字不产生新ID。RSS日期是本期编辑发布时间，原文日期在正文另列。
+
+**定时抓取不是定时编辑。**当前Actions不会调用模型，不会自动把英语标题变成中文摘要。每天自动生成并发布少量中文稿需要独立的已授权编辑任务，详见 [EDITORIAL.md](EDITORIAL.md)。代码不假装拥有这项能力。
+
+## 本地构建
+
+Python 3.10+，运行时无第三方Python/npm依赖。
 
 ```sh
 python3 -m unittest discover -s tests -v
 python3 scripts/aggregate.py
+python3 scripts/candidates.py --days 3 --limit 30
 python3 scripts/build.py --site-url https://wuroslu.github.io/tech-discovery/
 ```
 
-也可以不抓取，直接用已有缓存构建。离线双击 `public/index.html` 可预览已有数据，RSS 在线订阅需要真实的公开 HTTPS 地址。
+候选读取可跳过，直接构建已有精选。离线双击 `public/index.html` 可看内容。普通电脑可运行 `python3 -m http.server 8000 --directory public`；托管开发环境使用自己的预览服务。
 
-普通电脑预览：
+## 核心文件
 
-```sh
-python3 -m http.server 8000 --directory public
-```
+- `data/digests.json`：已核对的中文新闻，每期1–5条。
+- `schema/digests.schema.json`：编辑接口字段定义。
+- `EDITORIAL.md`：选题、事实核对、发布步骤和每日自动化要求。
+- `data/discoveries.json`：独立常青清单。
+- `data/news.json`、`data/source_status.json`：候选缓存和抓取健康状态，不进入精选列表。
+- `config/sources.json`：8个候选来源及缓存保留设置。
+- `scripts/aggregate.py`：RSS/Atom采集、去重准备、逐来源失败保留。
+- `scripts/candidates.py`：把近期候选输出给编辑，永不发布。
+- `scripts/build.py`：检查精选稿并生成静态页面与两份RSS。
+- `site/`：HTML/CSS/JS源码；`public/`：可部署静态产物。
+- `tests/`：45项确定性测试，包含“原始候选绝不补入精选”与“第六条拒绝发布”。
 
-然后打开 `http://localhost:8000/`。在具有自带预览服务的开发环境中，使用该环境指定的预览方式。
+公开仓库内的候选缓存本身也可被查看，不要把私人信息写入这些文件。
 
-## GitHub Pages 部署
+## 更新和部署
 
-`.github/workflows/update.yml` 已提交到 `main` 并启用：相关文件推送和每日计划会触发运行。首次推送触发的构建及重新部署已成功。以下步骤供首次配置或重新部署参考。
+使用公开仓库 `wuroslu/tech-discovery`，默认分支 `main`。Settings → Pages → Source 选择 **GitHub Actions**。提交页面代码或 `data/digests.json` 后，工作流验证、构建并部署。首次或排错可在 Actions 手动运行 **Refresh and deploy tech discovery**。
 
-1. 使用自己的 **公开仓库** `wuroslu/tech-discovery`，默认分支为 `main`。不要向公开仓库提交私人资料、口令或 API 密钥。
-2. 将本目录内容提交到该仓库。无需自定义域名，无需付款信息，无需第三方 API 密钥。
-3. 仓库 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**。
-4. 确认仓库允许官方 GitHub Actions，且没有阻止工作流写入缓存的规则。该工作流的构建 job 需要 `contents: write` 保存缓存；部署 job 使用 `pages: write` 与 `id-token: write`，均为当前运行的临时权限，不创建长期凭证。
-5. 如需手动重新部署，在 **Actions → Refresh and deploy tech discovery → Run workflow** 运行。等待 `build` 与 `deploy` 都成功。
-6. 打开上述站点和两份 RSS，确认状态时间更新。工作流使用 GitHub Pages API 返回的真实 `html_url` 设置 RSS 的绝对地址，不要求手填变量。
+现有计划 `30 9 * * *` 每天北京时间 **17:30**触发候选收集与重建。**这一计划不包含中文稿件编辑**，也不保证准点执行。没有更新的 `data/digests.json` 时，精选内容不变。
 
-如果仓库名称或所有者变化，不必修改流水线中的 URL。README 中的链接也应同步更新。
+工作流只用公开仓库标准 `ubuntu-latest` runner，私有仓库会跳过。构建job使用当前运行的 `contents: write` 保存候选缓存，部署job使用 `pages: write` 和 `id-token: write`；不创建长期凭证。Pages URL从GitHub API获取，保留子路径。
 
-### 更新计划
+站点工作流只负责本站候选采集与发布，不管理邮件或其他提醒。
 
-工作流 cron 为 `30 9 * * *`：每天 UTC **09:30**，即北京时间 **17:30**，沿用用户选择的每日频率。这只是计划触发时间，**不是准点保证**。
+## 零额外成本的范围
 
-- 页面代码、聚合脚本、来源配置、常青清单或测试变更时也会触发部署。
-- 常青清单由人工按需更新；定时任务只抓取动态，不会声称每天自动找到新的常青项目。
-- 已有邮件或其他自动化不由本项目管理或变更。
-- GitHub 可能延迟或丢弃高负载时段的计划任务。公开仓库长期无活动时，计划任务可能被禁用；需检查 Actions 并手动恢复。工作流保存缓存不等于对这项平台政策的豁免保证。
-- 页面距上次尝试超过 30 小时会显示更新较久的提示。
+本站不使用付费搜索、翻译或模型接口，不需自定义域名。GitHub Free公开仓库支持Pages；公开仓库标准GitHub托管runner的Actions免费，仍受平台规则和限制约束。免费部署不代表自动具备免费、无限的编辑服务。
 
-### 零额外成本的适用条件
+- [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)
+- [Actions计费](https://docs.github.com/en/billing/concepts/product-billing/github-actions)
+- [计划任务延迟与停用规则](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)
 
-按 GitHub 官方文档，GitHub Free 的公开仓库可以使用 Pages；公开仓库使用标准 GitHub 托管 runner 的 Actions 免费。本项目只使用 `ubuntu-latest` 标准 runner、静态文件和公开 RSS，单次最长 10 分钟，部署产物仅保留 1 天。工作流在私有仓库中会跳过，避免误用不符合本方案的计费环境。
+GitHub可能延迟或丢弃计划任务；公开仓库长期无活动可能被禁用。来源可能临时失败，失败时保留旧候选，但不会把它们标成今日的新稿。无法核对的事实不能靠规则过滤补足。
 
-免费不等于没有限制，也不保证平台永久不变。不要改用 larger runners、付费服务、付费域名或私有部署后仍假定同样免费。项目介绍中的第三方工具可能提供可选付费服务或需要本地硬件资源；这不属于本站运行费用。
+## 本次种子内容与核对
 
-官方说明：
-- [GitHub Pages 可用范围](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)
-- [Actions 计费说明](https://docs.github.com/en/billing/concepts/product-billing/github-actions)
-- [计划任务的延迟与停用限制](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)
-- [自定义 Pages 工作流](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
+11月3日内容日期的一期，共3条；原文于11月4日实际核对，不回填编辑发布时间：
 
-## 维护
+1. OpenAI硬件设计实验：不到一周完成的是设计，小批量原型制造另用了不到一个月，不是宣布消费产品销售。
+2. Siri AI开发者预览：27.3系列测试版中的接入能力；相关新能力面向用户仍需数月，不等于中国大陆Apple Intelligence开放。
+3. Fedora 45正式发布：GNOME 51 / Plasma 6.8、RPM签名强制检查，提示旧VPN插件退役。
 
-### 添加或关闭来源
-
-编辑 `config/sources.json`。每个来源包含唯一 `id`、名称、HTTPS feed `url`、官网 `homepage`、类别 `ai / hardware / software`、来源类型及 `enabled`。来源类型只说明出处，不是可信度评分。RSS 接口会变化，修改后应实际抓取验证。
-
-`lookback_days` 控制默认显示范围；`retention_days` 控制成功抓取后的保留窗口。每个成功来源最多保留 250 条；失败来源不清空旧缓存。暂停来源会停止抓取并从公开显示中移除，但不会删除磁盘中的已有缓存。
-
-### 添加常青发现
-
-编辑 `data/discoveries.json`，至少提供唯一 `id`、`title`、官方 `url`、`category`、简短中文 `note`、`source_name`、真实的 `added_at` 与 `verified_at`；可加 `use_case`。先打开原始资料核对，不从旧新闻推断今天仍存在的功能或价格。`added_at` 是本站收录时间，不是项目发布日期。
-
-### 文件结构
-
-```text
-config/sources.json              来源与保留配置
-scripts/aggregate.py             RSS/Atom 抓取、校验与逐源保留
-scripts/build.py                 静态 JSON、JS、RSS 构建
-site/                           页面源码
-public/                         可部署的静态产物
-  rss.xml                       动态 RSS，最多 100 条
-  discoveries.xml               常青 RSS，最多 100 条
-  data.json                     公开可复用数据
-  data.js                       离线预览数据
-  index.html / style.css / app.js
-  favicon.svg / .nojekyll
-data/news.json                  成功抓取缓存，不含全文
-data/source_status.json         最近抓取状态
-data/discoveries.json           人工维护的独立常青清单
-tests/test_pipeline.py          确定性单元测试
-.github/workflows/update.yml     定时更新与 Pages 部署
-```
-
-### 故障处理
-
-- **某个来源失败**：先看页面来源区。HTTP 403、限流或 XML 异常不会清空旧数据，下一次计划任务会重试。不要绕过网站访问限制。
-- **所有来源失败**：仍发布上次缓存和真实失败状态，避免页面空白或把故障误报为零新闻。
-- **Pages API 404 / 权限失败**：确认 Pages 已启用且 Source 是 GitHub Actions；核对仓库权限。不要通过创建长期 token 来绕过授权。
-- **缓存提交失败**：检查分支保护和 Actions 写权限。未解决前该次运行不会声称部署成功。
-- **自动更新停止**：检查 Actions 是否禁用，仓库是否仍公开，计划是否还在默认分支。RSS 阅读器缓存也可能造成显示延迟。
-
-## 本次验证
-
-- 28 个确定性测试：RSS/Atom、日期缺失/溢出/未来值、相对链接、去重、已知日期保留、空源/失败源保留、混合成功、XML DTD/实体拒绝、CDATA 示例文字、RSS 转义、脚本转义、站点 URL 校验。
-- JavaScript 语法检查。
-- 真实抓取：8/8 来源成功，348 条缓存，其中浏览器默认 14 天视图显示 88 条；10 条常青发现。此为 2026-11-04 的一次结果，不承诺未来各源始终可用。
-- 桌面与 390px 移动视图浏览器检查，搜索、类别、收藏与弹窗流程检查。
-- [GitHub 远端构建与部署](https://github.com/wuroslu/tech-discovery/actions/runs/41790584292)已成功；公开页面、数据、脚本、样式和两份 RSS 均已验证。2026-11-04 07:18 UTC 检查时，首次计划触发尚未发生；首个计划时间为当日 09:30 UTC，实际执行可能延迟。
+每条在数据与页面中直接链接官方中文或英文原文。另保留10条常青发现。验证包含45项测试、JavaScript语法、两份RSS XML、稳定GUID、中文摘要与原文日期分离、桌面与移动视图检查。每次远端部署后应检查公开页面与两份 RSS。

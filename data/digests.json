@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "timezone": "Asia/Shanghai",
+  "editions": [
+    {
+      "date": "2026-11-03",
+      "status": "published",
+      "published_at": "2026-11-04T07:28:48Z",
+      "editor_note": "本期收录11月3日发布的三条消息；原文于11月4日核对。",
+      "items": [
+        {
+          "title_zh": "OpenAI让AI参与硬件设计，但离量产还有距离",
+          "what_zh": "OpenAI称，两名成员借助Astra在不到一周内完成了一款连接Codex的实验设备设计，代工厂随后用不到一个月做出小批量原型。制造前仍经过多轮审查和修改。",
+          "why_zh": "值得留意的是AI开始参与外壳、电路板和软件的协同设计。它目前展示的是工程流程的进展，而不是一款已经可以买到的消费硬件。",
+          "caveat_zh": "设计速度为OpenAI自述，未经独立复现。不到一周指设计，不是完成制造。",
+          "category": "hardware",
+          "source_name": "OpenAI",
+          "original_title": "Accelerating engineering for the physical world",
+          "url": "https://openai.com/index/accelerating-engineering-for-the-physical-world/",
+          "id": "curated-6d3b5b9ceb736524c424",
+          "source_language": "en",
+          "source_published_at": "2026-11-03",
+          "checked_at": "2026-11-04T07:28:48Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "Siri AI开放开发者预览，应用可以开始接入",
+          "what_zh": "Apple在iOS、iPadOS、macOS和visionOS 27.3测试版中开放Siri AI开发者预览。应用可通过App Intents提供内容和操作，再用skills组合多个动作；相关新能力面向用户推出还需数月。",
+          "why_zh": "应用开发者可以提前测试接入方式。普通用户则要分清开发者预览与正式开放，不能把这条消息理解为中国大陆Apple Intelligence已经上线。",
+          "caveat_zh": "属于开发者早期预览，设备、语言和地区仍有限制；未来条款与用量政策尚有待公布。",
+          "category": "ai",
+          "source_name": "Apple Developer",
+          "original_title": "Siri AI is now open to all developers",
+          "url": "https://developer.apple.com/news/?id=gdk2umrf",
+          "id": "curated-7c2f585f4a14a8cfca11",
+          "source_language": "en",
+          "source_published_at": "2026-11-03",
+          "checked_at": "2026-11-04T07:28:48Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "Fedora 45发布，桌面与软件包验证一起更新",
+          "what_zh": "Fedora 45已正式发布并可免费获取。Workstation版升级到GNOME 51，KDE版升级到Plasma 6.8；RPM 6.1默认强制检查安装包签名，除非明确覆盖该设置。",
+          "why_zh": "想试试新Linux桌面的人多了一个选择。已有Fedora用户升级前也应留意：旧的vpnc和fortisslvpn网络插件将退役，相关VPN连接可能需要迁移。",
+          "caveat_zh": "功能信息来自官方发布说明。涉及现有系统升级时，先核对自己的硬件和软件兼容性。",
+          "category": "software",
+          "source_name": "Fedora / Red Hat",
+          "original_title": "Announcing Fedora 45",
+          "url": "https://www.redhat.com/en/blog/announcing-fedora-45",
+          "id": "curated-a41d872761523f2b4934",
+          "source_language": "en",
+          "source_published_at": "2026-11-03",
+          "checked_at": "2026-11-04T07:28:48Z",
+          "review_status": "reviewed"
+        }
+      ]
+    }
+  ]
+}

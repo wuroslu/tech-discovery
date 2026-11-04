@@ -12,6 +12,7 @@ on:
       - 'scripts/**'
       - 'config/**'
       - 'data/discoveries.json'
+      - 'data/digests.json'
       - 'tests/**'
       - '.github/workflows/update.yml'
 
@@ -38,7 +39,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run deterministic tests
         run: python3 -m unittest discover -s tests -v
-      - name: Aggregate public feeds
+      - name: Collect editorial candidates (never auto-publish)
         run: python3 scripts/aggregate.py
       - name: Resolve Pages URL
         id: url
@@ -52,7 +53,7 @@ jobs:
           test -n "$SITE_URL"
           echo "SITE_URL=$SITE_URL" >> "$GITHUB_ENV"
           echo "page_url=$SITE_URL" >> "$GITHUB_OUTPUT"
-      - name: Build static files and RSS
+      - name: Validate and build reviewed Chinese digest
         run: python3 scripts/build.py
       - name: Retain source state for future runs
         run: |

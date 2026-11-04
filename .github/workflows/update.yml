@@ -1,0 +1,83 @@
+name: Refresh and deploy tech discovery
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Daily at 17:30 Beijing / 09:30 UTC; GitHub may delay the actual run.
+    - cron: '30 9 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'scripts/**'
+      - 'config/**'
+      - 'data/discoveries.json'
+      - 'tests/**'
+      - '.github/workflows/update.yml'
+
+# Avoid overlapping writes or deployments. A newer run waits, never cancels data writes.
+concurrency:
+  group: tech-discovery-pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    # Free-cost guard: never run this workflow in a private repository.
+    if: github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pages: read
+    outputs:
+      page_url: ${{ steps.url.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run deterministic tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Aggregate public feeds
+        run: python3 scripts/aggregate.py
+      - name: Resolve Pages URL
+        id: url
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          # Pages must already be enabled in Settings > Pages > GitHub Actions.
+          # Use the API's real URL (including any approved custom domain), never guess it.
+          SITE_URL="$(gh api "repos/$REPO/pages" --jq '.html_url')"
+          test -n "$SITE_URL"
+          echo "SITE_URL=$SITE_URL" >> "$GITHUB_ENV"
+          echo "page_url=$SITE_URL" >> "$GITHUB_OUTPUT"
+      - name: Build static files and RSS
+        run: python3 scripts/build.py
+      - name: Retain source state for future runs
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/news.json data/source_status.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update feed cache and source status'
+            git push
+          fi
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+          retention-days: 1
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,78 @@
+{
+  "lookback_days": 14,
+  "retention_days": 90,
+  "sources": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "url": "https://openai.com/news/rss.xml",
+      "homepage": "https://openai.com/news/",
+      "category": "ai",
+      "kind": "官方",
+      "enabled": true
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "homepage": "https://huggingface.co/blog",
+      "category": "ai",
+      "kind": "官方 / 社区",
+      "enabled": true
+    },
+    {
+      "id": "google-ai",
+      "name": "Google AI",
+      "url": "https://blog.google/technology/ai/rss/",
+      "homepage": "https://blog.google/technology/ai/",
+      "category": "ai",
+      "kind": "官方",
+      "enabled": true
+    },
+    {
+      "id": "raspberrypi",
+      "name": "Raspberry Pi",
+      "url": "https://www.raspberrypi.com/news/feed/",
+      "homepage": "https://www.raspberrypi.com/news/",
+      "category": "hardware",
+      "kind": "官方",
+      "enabled": true
+    },
+    {
+      "id": "arduino",
+      "name": "Arduino",
+      "url": "https://blog.arduino.cc/feed/",
+      "homepage": "https://blog.arduino.cc/",
+      "category": "hardware",
+      "kind": "官方",
+      "enabled": true
+    },
+    {
+      "id": "hackaday",
+      "name": "Hackaday",
+      "url": "https://hackaday.com/blog/feed/",
+      "homepage": "https://hackaday.com/",
+      "category": "hardware",
+      "kind": "媒体 / 创客",
+      "enabled": true
+    },
+    {
+      "id": "github",
+      "name": "GitHub Blog",
+      "url": "https://github.blog/feed/",
+      "homepage": "https://github.blog/",
+      "category": "software",
+      "kind": "官方",
+      "enabled": true
+    },
+    {
+      "id": "mozilla",
+      "name": "Mozilla",
+      "url": "https://blog.mozilla.org/en/feed/",
+      "homepage": "https://blog.mozilla.org/en/",
+      "category": "software",
+      "kind": "官方",
+      "enabled": true
+    }
+  ]
+}

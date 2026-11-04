@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "id": "localsend",
+      "title": "LocalSend：让文件在设备之间自由走动",
+      "url": "https://localsend.org/",
+      "category": "software",
+      "note": "在同一局域网的设备间传文件。项目免费、开源，不需要把文件先传到云端。",
+      "use_case": "适合：手机与电脑快速互传照片、文档。",
+      "source_name": "LocalSend 官方网站",
+      "added_at": "2026-11-04",
+      "verified_at": "2026-11-04"
+    },
+    {
+      "id": "scrcpy",
+      "title": "scrcpy：把 Android 屏幕带到电脑上",
+      "url": "https://github.com/Genymobile/scrcpy",
+      "category": "hardware",
+      "note": "用电脑显示和控制 Android 设备，支持 USB 或网络连接。免费、开源；使用时留意 USB 调试授权。",
+      "use_case": "适合：演示手机操作、测试应用、利用旧设备。",
+      "source_name": "Genymobile / scrcpy 官方仓库",
+      "added_at": "2026-11-04",
+      "verified_at": "2026-11-04"
+    },
+    {
+      "id": "ollama",
+      "title": "Ollama：在自己的电脑上试试本地模型",
+      "url": "https://ollama.com/",
+      "category": "ai",
+      "note": "让本地运行模型更容易。所需内存、速度与模型大小有关；模型许可各不相同，云端选项也可能收费。",
+      "use_case": "适合：探索本地 AI，而不是默认调用付费接口。",
+      "source_name": "Ollama 官方网站",
+      "added_at": "2026-11-04",
+      "verified_at": "2026-11-04"
+    },
+    {
+      "id": "blender",
+      "title": "Blender：从一个立方体，开始创造",
+      "url": "https://www.blender.org/about/license/",
+      "category": "software",
+      "note": "开源 3D 创作工具，采用 GPL 许可。建模、动画和渲染可以从免费核心软件开始。",
+      "use_case": "适合：做一个小场景，或者给自己的想法建模。",
+      "source_name": "Blender 官方许可说明",
+      "added_at": "2026-11-04",
+      "verified_at": "2026-11-04"
+    },
+    {
+      "id": "penpot",
+      "title": "Penpot：开放的界面设计与原型工具",
+      "url": "https://penpot.app/pricing",
+      "category": "software",
+      "note": "面向界面设计与协作的开源工具。云端方案有额度与功能限制；自己部署仍需承担运行资源。",
+      "use_case": "适合：把产品想法画成界面，再交给开发。",
+      "source_name": "Penpot 官方方案说明",
+      "added_at": "2026-11-04",
+      "verified_at": "2026-11-04"
+    },
+    {
+      "id": "godot",
+      "title": "Godot：把小游戏想法变成可玩的作品",
+      "url": "https://godotengine.org/",
+      "category": "software",
+      "note": "采用 MIT 许可的免费、开源游戏引擎，支持 2D 与 3D 创作。",
+      "use_case": "适合：从一个小型游戏原型开始。",
+      "source_name": "Godot 官方网站",
+      "added_at": "2026-11-04",
+      "verified_at": "2026-11-04"
+    },
+    {
+      "id": "excalidraw",
+      "title": "Excalidraw：用手绘感白板理清思路",
+      "url": "https://github.com/excalidraw/excalidraw",
+      "category": "software",
+      "note": "开源虚拟白板，适合画草图和关系图。免费核心项目与付费 Excalidraw+ 服务是不同选项。",
+      "use_case": "适合：架构草图、讨论思路、快速解释一个流程。",
+      "source_name": "Excalidraw 官方仓库",
+      "added_at": "2026-11-04",
+      "verified_at": "2026-11-04"
+    },
+    {
+      "id": "uv",
+      "title": "uv：让 Python 项目环境少一点折腾",
+      "url": "https://astral.sh/blog/uv-unified-python-packaging",
+      "category": "software",
+      "note": "Astral 的 Python 项目与包管理工具。可以把环境、依赖与项目工作流放到一个工具中处理。",
+      "use_case": "适合：启动小脚本，或管理多个 Python 项目。",
+      "source_name": "Astral 官方介绍",
+      "added_at": "2026-11-04",
+      "verified_at": "2026-11-04"
+    },
+    {
+      "id": "openhands",
+      "title": "OpenHands：探索开源的软件开发智能体",
+      "url": "https://www.openhands.dev/pricing",
+      "category": "ai",
+      "note": "可自己部署的开源开发智能体方案。自行运行不代表模型调用免费；模型、算力和托管费用需要单独考虑。",
+      "use_case": "适合：研究开发智能体如何在真实项目里工作。",
+      "source_name": "OpenHands 官方方案说明",
+      "added_at": "2026-11-04",
+      "verified_at": "2026-11-04"
+    },
+    {
+      "id": "nowinandroid",
+      "title": "Now in Android：拆开一个官方 Android 示例",
+      "url": "https://github.com/android/nowinandroid",
+      "category": "software",
+      "note": "Google 的开源 Android 示例应用，可直接阅读代码与项目组织方式。它是学习参考，不是一条新品新闻。",
+      "use_case": "适合：观察现代 Android 应用如何组织与实现。",
+      "source_name": "Android 官方仓库",
+      "added_at": "2026-11-04",
+      "verified_at": "2026-11-04"
+    }
+  ]
+}

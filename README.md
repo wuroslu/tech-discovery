@@ -2,11 +2,11 @@
 
 面向手机阅读的中文科技发现站。**最近动态**与**常青发现**各自独立，也分别提供 RSS。
 
-- 计划站点：<https://wuroslu.github.io/tech-discovery/>
+- 已上线站点：<https://wuroslu.github.io/tech-discovery/>
 - 动态订阅：<https://wuroslu.github.io/tech-discovery/rss.xml>
 - 常青发现：<https://wuroslu.github.io/tech-discovery/discoveries.xml>
 
-这些是部署目标地址；本地构建成功不代表已上线。首次部署后应实际打开站点与两份 XML 检查。
+2026-11-04 07:18 UTC 已验证上述站点和两份 RSS 均正常访问；两份 RSS 分别包含 100 条动态与 10 条常青发现。
 
 ## 内容与边界
 
@@ -42,13 +42,13 @@ python3 -m http.server 8000 --directory public
 
 ## GitHub Pages 部署
 
-本项目已准备好 `.github/workflows/update.yml`，但写入文件不会自行激活任何任务。
+`.github/workflows/update.yml` 已提交到 `main` 并启用：相关文件推送和每日计划会触发运行。首次推送触发的构建及重新部署已成功。以下步骤供首次配置或重新部署参考。
 
 1. 使用自己的 **公开仓库** `wuroslu/tech-discovery`，默认分支为 `main`。不要向公开仓库提交私人资料、口令或 API 密钥。
 2. 将本目录内容提交到该仓库。无需自定义域名，无需付款信息，无需第三方 API 密钥。
 3. 仓库 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**。
 4. 确认仓库允许官方 GitHub Actions，且没有阻止工作流写入缓存的规则。该工作流的构建 job 需要 `contents: write` 保存缓存；部署 job 使用 `pages: write` 与 `id-token: write`，均为当前运行的临时权限，不创建长期凭证。
-5. 在 **Actions → Refresh and deploy tech discovery → Run workflow** 手动运行第一次。等待 `build` 与 `deploy` 都成功。
+5. 如需手动重新部署，在 **Actions → Refresh and deploy tech discovery → Run workflow** 运行。等待 `build` 与 `deploy` 都成功。
 6. 打开上述站点和两份 RSS，确认状态时间更新。工作流使用 GitHub Pages API 返回的真实 `html_url` 设置 RSS 的绝对地址，不要求手填变量。
 
 如果仓库名称或所有者变化，不必修改流水线中的 URL。README 中的链接也应同步更新。
@@ -122,4 +122,4 @@ tests/test_pipeline.py          确定性单元测试
 - JavaScript 语法检查。
 - 真实抓取：8/8 来源成功，348 条缓存，其中浏览器默认 14 天视图显示 88 条；10 条常青发现。此为 2026-11-04 的一次结果，不承诺未来各源始终可用。
 - 桌面与 390px 移动视图浏览器检查，搜索、类别、收藏与弹窗流程检查。
-- GitHub 远端运行和最终公开部署状态需以实际 Actions 与 Pages 结果为准。
+- [GitHub 远端构建与部署](https://github.com/wuroslu/tech-discovery/actions/runs/41790584292)已成功；公开页面、数据、脚本、样式和两份 RSS 均已验证。2026-11-04 07:18 UTC 检查时，首次计划触发尚未发生；首个计划时间为当日 09:30 UTC，实际执行可能延迟。

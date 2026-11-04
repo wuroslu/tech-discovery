@@ -189,7 +189,16 @@ def build(root: Path, site_url: str = '', now: datetime | None = None):
     atomic_json(out / 'data.json', payload)
     # Inline local data supports an offline double-click preview, without fetch/CORS.
     embedded = json.dumps(payload, ensure_ascii=False).replace('<', '\\u003c').replace('\u2028', '\\u2028').replace('\u2029', '\\u2029')
-    (out / 'data.js').write_text('window.TECH_DATA = ' + embedded + ';\n', encoding='utf-8')
+    data_script = 'window.TECH_DATA = ' + embedded + ';\n'
+    # A fresh HTML response must not reuse yesterday's cached data script.
+    # Keep data.js for older HTML and use a relative fingerprinted URL for new
+    # pages, including offline file:// previews and Pages repository subpaths.
+    data_filename = 'data.' + hashlib.sha256(data_script.encode('utf-8')).hexdigest()[:20] + '.js'
+    (out / 'data.js').write_text(data_script, encoding='utf-8')
+    (out / data_filename).write_text(data_script, encoding='utf-8')
+    index = out / 'index.html'
+    if index.exists():
+        index.write_text(index.read_text(encoding='utf-8').replace('src="data.js"', f'src="{data_filename}"'), encoding='utf-8')
     (out / 'rss.xml').write_bytes(rss(news, '拾新 · 每日中文精选', '每天最多五条经原文核对的中文科技摘要，覆盖国内外来源并附原文。编辑判断与事实分开。', site_url, 'rss.xml', now))
     evergreen = sorted(discoveries, key=lambda i: i.get('added_at', ''), reverse=True)
     (out / 'discoveries.xml').write_bytes(rss(evergreen, '拾新 · 常青发现', '不限发布时间的工具、项目和灵感。条目时间是收录时间，不是产品发布日期。', site_url, 'discoveries.xml', now))

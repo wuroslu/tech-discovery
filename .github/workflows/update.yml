@@ -56,14 +56,7 @@ jobs:
       - name: Validate and build reviewed Chinese digest
         run: python3 scripts/build.py
       - name: Retain source state for future runs
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/news.json data/source_status.json
-          if ! git diff --cached --quiet; then
-            git commit -m 'Update feed cache and source status'
-            git push
-          fi
+        run: bash scripts/save_feed_cache.sh
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public

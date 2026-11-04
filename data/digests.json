@@ -54,6 +54,59 @@
           "review_status": "reviewed"
         }
       ]
+    },
+    {
+      "date": "2026-11-04",
+      "status": "published",
+      "published_at": "2026-11-04T09:38:35Z",
+      "editor_note": "本期精选3条：今日Hy4发布、11月3日模型测试新方法，以及一条10月28日的Android开发工具补看。原文均于11月4日核对。",
+      "items": [
+        {
+          "title_zh": "腾讯Hy4正式版上线API，首次加入视觉理解",
+          "what_zh": "腾讯于11月4日发布Hy4正式版，已可通过腾讯云和OpenRouter调用API。相较Hy4 preview，新版首次加入视觉理解与电脑操作能力；腾讯称其在长任务、指令遵循和长上下文理解方面也有提升。",
+          "why_zh": "需要同时处理图片、代码和多步操作的开发者，多了一个可评估的模型。真正值得比较的是它在自己任务中的完成率、速度和成本，而不只是榜单成绩。",
+          "caveat_zh": "能力提升来自腾讯自述，未经本站独立实测。官方表示正式版权重计划后续开放，不能视为已经可下载。API按量收费，OpenRouter核对时也为付费服务；实际价格与可用性以调用时为准。",
+          "category": "ai",
+          "source_name": "腾讯 Hy",
+          "original_title": "Introducing Hy4",
+          "url": "https://hy.tencent.ai/research/hy4?langVersion=en",
+          "source_language": "en",
+          "source_published_at": "2026-11-04",
+          "checked_at": "2026-11-04T09:37:10Z",
+          "review_status": "reviewed",
+          "id": "curated-003910a6c8daf0d516db"
+        },
+        {
+          "title_zh": "补看10月28日：Android Studio可直接选用Codex等代理",
+          "what_zh": "Google于10月28日宣布Android Studio Rabbit 2进入稳定版，可在IDE内直接选择Claude Agent、Codex、Antigravity或40多种兼容ACP的代理，使用Android Studio的开发工具。",
+          "why_zh": "已经在用编码代理做Android应用的人，可以少一些工具切换，并按任务选择代理。对现有项目，更适合先验证构建、调试和预览是否顺畅，再决定是否更换工作方式。",
+          "caveat_zh": "这是10月28日发布的补看消息，并非今日新品。IDE支持接入不代表所有代理和模型服务免费；账号、地区、版本支持与费用仍需分别核对。",
+          "category": "software",
+          "source_name": "Android Developers",
+          "original_title": "Agentic and Flexible: A next era of Android development",
+          "url": "https://developer.android.google.cn/blog/posts/build-it-your-way-a-next-era-of-android-development?hl=en",
+          "source_language": "en",
+          "source_published_at": "2026-10-28",
+          "checked_at": "2026-11-04T09:35:15Z",
+          "review_status": "reviewed",
+          "id": "curated-d16fdd033ace848d52cd"
+        },
+        {
+          "title_zh": "Hugging Face提出MIC，用小模型在CPU上查行为回归",
+          "what_zh": "Hugging Face于11月3日介绍Transformers Model Integration Contracts：保留模型结构类型和预处理文件，缩小模型后，在CPU上运行固定用例，与人工审核过的输出基线比较。团队回放历史提交时，用小型UMT5模型发现了不会导致程序崩溃的注意力回归问题。",
+          "why_zh": "模型能加载、能运行，不等于行为仍然正确。维护模型库或推理应用时，这种低成本检查思路有助于更早发现输出、训练损失和梯度的变化。",
+          "caveat_zh": "文章披露的CI状态截至11月1日：只报告失败，不阻止PR合入。覆盖仍有限，不能替代真实权重的完整集成测试；创建新MIC时使用的模型服务也可能收费。",
+          "category": "ai",
+          "source_name": "Hugging Face",
+          "original_title": "Transformers Model Integration Contracts",
+          "url": "https://huggingface.co/blog/transformers-mic",
+          "source_language": "en",
+          "source_published_at": "2026-11-03",
+          "checked_at": "2026-11-04T09:35:15Z",
+          "review_status": "reviewed",
+          "id": "curated-a6f54d325d31634f8916"
+        }
+      ]
     }
   ]
 }

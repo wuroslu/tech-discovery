@@ -107,6 +107,59 @@
           "id": "curated-a6f54d325d31634f8916"
         }
       ]
+    },
+    {
+      "date": "2026-11-05",
+      "status": "published",
+      "published_at": "2026-11-05T09:30:27Z",
+      "editor_note": "本期精选3条近期消息：图像生成更新、Conductor Cloud迁移提醒及Android峰会技术回顾。原文于11月5日核对；不把回顾或预览写成今日正式发布。",
+      "items": [
+        {
+          "title_zh": "OpenAI发布Images 2.6，加入GIF生成与API的SVG导出",
+          "what_zh": "OpenAI于11月4日发布Images 2.6，在ChatGPT、Codex及API中提供，加入GIF生成。API提供Flare和Sunburst两种模型，支持图像标注编辑、SVG导出及控制生成规划程度的complexity参数。",
+          "why_zh": "需要反复修改角色、产品图或制作短动画的人，可以评估它能否减少返工；开发者也多了将生成图形接入网站和应用的方式。",
+          "caveat_zh": "速度与一致性提升为厂商自述，本站未独立实测。API按token收费；ChatGPT和API仍受官方支持国家与地区限制，不能将“全球推出”理解为中国大陆已可使用。",
+          "category": "ai",
+          "url": "https://openai.com/index/introducing-images-2-6/",
+          "original_title": "Introducing Images 2.6",
+          "source_name": "OpenAI",
+          "id": "curated-9e49ad7916ca6612b9df",
+          "source_language": "en",
+          "source_published_at": "2026-11-04",
+          "checked_at": "2026-11-05T09:30:27Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "Conductor加入Meta，云端用户需在11月20日前导出数据",
+          "what_zh": "Conductor宣布加入Meta，已停止新用户注册和应用下载。官方时间表列明：11月13日Cloud工作区转为只读，11月20日关闭并开始删除云端用户数据；现有用户可把工作区转到本地，或在设置中导出全部数据。",
+          "why_zh": "把代码代理工作放在Conductor Cloud的开发者，应尽早保存工作区和聊天记录，并确认导出内容可用，避免临近关闭才迁移。",
+          "caveat_zh": "原文日期按公告时间表起点11月4日记录，页面未单列发布时间或时区，截止日期不换算为北京时间。本地版仍可使用，并将维护至2027年初；本次11月20日关闭针对Cloud。",
+          "category": "software",
+          "url": "https://www.conductor.build/announcement",
+          "original_title": "Conductor is joining Meta",
+          "source_name": "Conductor",
+          "id": "curated-32656c1ba5b89d6892b8",
+          "source_language": "en",
+          "source_published_at": "2026-11-04",
+          "checked_at": "2026-11-05T09:30:27Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "Android峰会回顾：AppState进入alpha，Compose 1.13仍待稳定版",
+          "what_zh": "Google于11月4日回顾Android Developer Summit的Compose进展：Jetpack AppState已进入alpha，用于在应用架构中共享响应式状态；即将发布的Compose 1.13稳定版将带来Grid、Flexbox等功能。官方还介绍了新的Compose性能和Ink编码代理技能。",
+          "why_zh": "适配折叠屏、平板和桌面窗口的Android团队，可以据此规划状态管理与多窗格界面测试，并尝试让编码代理辅助性能优化。",
+          "caveat_zh": "这是峰会近期公告的回顾，不是所有功能在11月4日首次发布。AppState仍为alpha，Compose 1.13稳定版尚未发布；试用前需逐项核对版本和兼容性。",
+          "category": "software",
+          "url": "https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates",
+          "original_title": "Build for every screen with the latest Jetpack Compose updates from Android Developer Summit",
+          "source_name": "Android Developers",
+          "id": "curated-15c3741bd38d8e1808e6",
+          "source_language": "en",
+          "source_published_at": "2026-11-04",
+          "checked_at": "2026-11-05T09:30:27Z",
+          "review_status": "reviewed"
+        }
+      ]
     }
   ]
 }

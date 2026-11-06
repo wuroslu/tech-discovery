@@ -160,6 +160,74 @@
           "review_status": "reviewed"
         }
       ]
+    },
+    {
+      "date": "2026-11-06",
+      "status": "published",
+      "published_at": "2026-11-06T09:39:36Z",
+      "editor_note": "本期精选4条：视频生成模型更新、Android安全补丁提醒、百度基座模型权重及GitHub PR页面预览。原文分别发布于11月2日和5日，均于11月6日核对。",
+      "items": [
+        {
+          "title_zh": "Gemini Omni 1.2 Flash可生成15秒视频，API降价",
+          "what_zh": "Google于11月5日发布Gemini Omni 1.2 Flash，支持生成和编辑3至15秒视频，以及多轮对话修改。模型已在Gemini API正式开放，720p视频价格为每秒0.07美元；Gemini应用中的15秒视频正向Google AI Ultra订阅者逐步推出。",
+          "why_zh": "制作产品演示或短视频的团队，可以评估更长片段和局部修改能否减少返工，并按成片需求比较生成成本。",
+          "caveat_zh": "一致性和画质提升为Google自述，本站未独立实测。API按量收费；应用与API的账号、套餐、地区和推出进度不同，不能据此认定中国大陆个人账号可用。",
+          "category": "ai",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+          "original_title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+          "source_name": "Google",
+          "source_language": "en",
+          "source_published_at": "2026-11-05",
+          "checked_at": "2026-11-06T09:39:06Z",
+          "review_status": "reviewed",
+          "id": "curated-27b87d65d3f99406683f"
+        },
+        {
+          "title_zh": "Android发布11月安全公告，留意11月5日补丁级别",
+          "what_zh": "Android于11月2日发布本月安全公告，列出Framework等组件的漏洞，其中包括可能无需用户交互即可触发的严重远程代码执行问题。安全补丁级别达到2026-11-05或之后的设备，应包含本公告中所有适用于该设备的修复。",
+          "why_zh": "Android用户值得打开系统设置，检查安全补丁日期与可用更新。对管理多台设备的团队，核对补丁级别比只看Android大版本更有用。",
+          "caveat_zh": "公告发布不等于所有手机已收到更新，实际推送取决于设备厂商与机型。这里的2026-11-05是补丁级别，公告实际发布于11月2日；不据此推断漏洞已遭利用。",
+          "category": "software",
+          "url": "https://source.android.com/docs/security/bulletin/2026/2026-11-01.html",
+          "original_title": "Android Security Bulletin—November 2026",
+          "source_name": "Android Open Source Project",
+          "source_language": "en",
+          "source_published_at": "2026-11-02",
+          "checked_at": "2026-11-06T09:39:06Z",
+          "review_status": "reviewed",
+          "id": "curated-93b15df1ba2c8e9592d1"
+        },
+        {
+          "title_zh": "百度开放ERNIE 5.5 Flash Base权重，供继续训练",
+          "what_zh": "百度于11月5日发布ERNIE 5.5 Flash Base的FP8和BF16权重。这是一款仅完成预训练的文本基座模型，总参数2800亿，每个token激活约140亿参数，可作为领域适配、指令微调和强化学习研究的起点。",
+          "why_zh": "有训练与部署能力的团队，多了一个可自行定制的中文模型基础。评估时应同时比较后续训练投入、部署资源和自身任务效果。",
+          "caveat_zh": "尚未经中期或后期训练，不能当作开箱即用的聊天助手。权重采用ERNIE专用模型许可，使用前需阅读条款；官方vLLM插件当前仅支持NVIDIA GPU，FP8权重约280GB，硬件门槛仍高。",
+          "category": "ai",
+          "url": "https://ernie.baidu.com/release/ernie-5-5-flash-base/",
+          "original_title": "ERNIE 5.5 Flash Base",
+          "source_name": "Baidu ERNIE",
+          "source_language": "en",
+          "source_published_at": "2026-11-05",
+          "checked_at": "2026-11-06T09:39:06Z",
+          "review_status": "reviewed",
+          "id": "curated-43b40d97b2172d2998af"
+        },
+        {
+          "title_zh": "GitHub新PR概览页进入公开预览，合并状态移到顶部",
+          "what_zh": "GitHub于11月5日推出可主动加入的PR Overview公开预览，将合并状态、检查结果、审批和下一步操作集中到页面顶部。评论可筛选未解决讨论或自己写的内容，也可按最新优先排序。",
+          "why_zh": "经常审阅长PR的人，可以更快找到失败检查、待审批项和未解决反馈，减少在讨论记录中来回翻找。",
+          "caveat_zh": "仍是公开预览，官方表示分批开放将持续到周末。看到“Try the Overview page”入口后可主动试用，并可切回经典页面；可用操作仍受仓库权限约束。",
+          "category": "software",
+          "url": "https://github.blog/changelog/2026-11-05-new-pull-request-overview-page-in-public-preview/",
+          "original_title": "New pull request overview page in public preview",
+          "source_name": "GitHub Changelog",
+          "source_language": "en",
+          "source_published_at": "2026-11-05",
+          "checked_at": "2026-11-06T09:39:06Z",
+          "review_status": "reviewed",
+          "id": "curated-62bcbf2fb4b3a6721796"
+        }
+      ]
     }
   ]
 }

@@ -201,7 +201,7 @@
           "title_zh": "百度开放ERNIE 5.5 Flash Base权重，供继续训练",
           "what_zh": "百度于11月5日发布ERNIE 5.5 Flash Base的FP8和BF16权重。这是一款仅完成预训练的文本基座模型，总参数2800亿，每个token激活约140亿参数，可作为领域适配、指令微调和强化学习研究的起点。",
           "why_zh": "有训练与部署能力的团队，多了一个可自行定制的中文模型基础。评估时应同时比较后续训练投入、部署资源和自身任务效果。",
-          "caveat_zh": "尚未经中期或后期训练，不能当作开箱即用的聊天助手。权重采用ERNIE专用模型许可，使用前需阅读条款；官方vLLM插件当前仅支持NVIDIA GPU，FP8权重约280GB，硬件门槛仍高。",
+          "caveat_zh": "尚未经中期或后期训练，不能当作开箱即用的聊天助手。11月7日补充核对：专用许可不覆盖欧盟、英国和韩国，限制也涉及衍生模型与输出。相关产品或服务年营收不超过5000万美元的商业使用需首次使用前通知及署名，超出则须事先取得单独书面授权；官方vLLM插件当前仅支持NVIDIA GPU，FP8权重约280GB，硬件门槛仍高。",
           "category": "ai",
           "url": "https://ernie.baidu.com/release/ernie-5-5-flash-base/",
           "original_title": "ERNIE 5.5 Flash Base",
@@ -210,7 +210,9 @@
           "source_published_at": "2026-11-05",
           "checked_at": "2026-11-06T09:39:06Z",
           "review_status": "reviewed",
-          "id": "curated-43b40d97b2172d2998af"
+          "id": "curated-43b40d97b2172d2998af",
+          "correction_checked_at": "2026-11-07T09:37:36Z",
+          "correction_source_url": "https://huggingface.co/baidu/ERNIE-5.5-Flash-Base/blob/main/LICENSE"
         },
         {
           "title_zh": "GitHub新PR概览页进入公开预览，合并状态移到顶部",
@@ -226,6 +228,59 @@
           "checked_at": "2026-11-06T09:39:06Z",
           "review_status": "reviewed",
           "id": "curated-62bcbf2fb4b3a6721796"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-07",
+      "status": "published",
+      "published_at": "2026-11-07T09:37:36Z",
+      "editor_note": "本期精选3条近期进展，分别照顾Android浏览、编程与创作兴趣；原文发布于11月2日至5日，均于11月7日核对，不将近期消息写成今日首发。另补充11月6日ERNIE条目的许可地区与商业使用限制，保留原条目ID。",
+      "items": [
+        {
+          "title_zh": "Vivaldi 8.3移动版发布，Android可按网站调节拦截强度",
+          "what_zh": "Vivaldi于11月5日发布8.3移动版，重新设计广告与追踪拦截器，可按网站选择拦截等级。复制净化链接功能会移除已知追踪参数；Android版还支持把链接打开到指定标签组，并从系统媒体控件切换不同标签页的音频。",
+          "why_zh": "经常用Android查资料、分享网页或听音频的人，可以更细地控制网页干扰，减少切换标签页的操作。按网站设置也方便在隐私保护与页面兼容性之间取舍。",
+          "caveat_zh": "浏览器免费。Strong和Aggressive拦截可能导致部分网站功能异常，可按站点降低强度。净化链接只移除已知追踪参数，不能保证匿名；本文未独立测试速度或续航提升。下载渠道与版本推送以官网及所在地区商店为准。",
+          "category": "software",
+          "url": "https://vivaldi.com/blog/vivaldi-on-mobile-8-3/",
+          "original_title": "Vivaldi 8.3 for Mobile: A faster, cleaner web in your pocket",
+          "source_name": "Vivaldi",
+          "source_language": "en",
+          "source_published_at": "2026-11-05",
+          "checked_at": "2026-11-07T09:37:36Z",
+          "review_status": "reviewed",
+          "id": "curated-f74efc18343dc8488d41"
+        },
+        {
+          "title_zh": "SWE-2 Flash上线Devin，官方标注免费试用至11月30日",
+          "what_zh": "Cognition于11月4日发布编码模型SWE-2 Flash，已接入Devin Desktop和CLI。模型基于Thinking Machines的Inkling-Small，经过中期训练与强化学习；官方发布页标注可免费试用至11月30日。",
+          "why_zh": "想尝试编码代理的开发者，多了一个可用于日常代码修改和文档工作的模型。适合拿自己的小任务比较结果质量、耗时和人工复核成本。",
+          "caveat_zh": "性能与速度数据为厂商自评，本站未独立复现。权重尚未公开，只计划向可信合作方和研究机构分享。免费是限时安排，不代表全部Devin服务免费；公告未列清试用额度和结束后的具体价格，也未确认中国大陆可用性，使用前应核对账号资格与服务条款。",
+          "category": "ai",
+          "url": "https://cognition.com/blog/swe-2-flash",
+          "original_title": "Introducing SWE-2 Flash",
+          "source_name": "Cognition",
+          "source_language": "en",
+          "source_published_at": "2026-11-04",
+          "checked_at": "2026-11-07T09:37:36Z",
+          "review_status": "reviewed",
+          "id": "curated-f68747c39bba0d736ba3"
+        },
+        {
+          "title_zh": "新版Affinity登陆iPad，个人核心创作工具免费",
+          "what_zh": "Affinity于11月2日发布新版iPad应用，把矢量设计、照片编辑、页面排版和绘画整合到一个应用中，支持触控与Apple Pencil，并可与桌面版使用同一.af文件。个人用户可免费使用核心工具，登录需要Canva账号。",
+          "why_zh": "希望在iPad上画草图、修照片和排版的人，多了一个不用为核心工具付订阅费的选择。跨设备使用同一文件，也有助于把移动创作接回桌面工作。",
+          "caveat_zh": "Canva AI Studio需premium方案，不能把核心工具免费理解为所有AI功能免费。首发缺少Books、Batch、Data Merge面板及宏录制等部分桌面功能，部分外来文件的高级效果也可能简化；下载前应核对设备兼容性和所在地区App Store可用性，本文未确认中国大陆上架情况。",
+          "category": "software",
+          "url": "https://www.affinity.studio/blog/affinity-update-ipad-2026",
+          "original_title": "Affinity for iPad is here!",
+          "source_name": "Affinity / Canva",
+          "source_language": "en",
+          "source_published_at": "2026-11-02",
+          "checked_at": "2026-11-07T09:37:36Z",
+          "review_status": "reviewed",
+          "id": "curated-e8f3d9f68ee2b96ed3eb"
         }
       ]
     }

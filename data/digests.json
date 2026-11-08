@@ -283,6 +283,66 @@
           "id": "curated-e8f3d9f68ee2b96ed3eb"
         }
       ]
+    },
+    {
+      "date": "2026-11-08",
+      "status": "published",
+      "published_at": "2026-11-08T09:34:12Z",
+      "editor_note": "本期精选3条近期创作与编程工具进展，原文发布于11月4日至7日，均于11月8日核对。测试版、分批推送和付费限制分别注明，不将近期消息写成今日首发。",
+      "items": [
+        {
+          "title_zh": "Premiere测试生成式移除，可擦除视频中的多余物体",
+          "what_zh": "Adobe于11月4日宣布在Premiere测试版中提供Generative Remove。用户为物体绘制并跟踪蒙版后，可由云端生成内容填补选区，蒙版外画面保持不变；原始素材保留，也可重新生成或还原。",
+          "why_zh": "拍摄时意外入镜的麦克风、灯架或背景杂物，多了一个在剪辑软件内尝试修补的办法。适合先用短片段比较结果，逐帧检查边缘、阴影和运动是否自然。",
+          "caveat_zh": "仍为beta，需联网并将素材交由云端处理。当前仅支持最长10秒、480p至1080p、最高30fps，不支持HDR、10-bit素材或Team Projects。官方帮助页列明每秒消耗40个生成式积分，10秒为400积分，并非无限免费；账号资格、积分与所在地区可用性需另查，本文未确认中国大陆可用。",
+          "category": "software",
+          "url": "https://community.adobe.com/announcements-732/now-in-beta-generative-remove-in-premiere-1654360",
+          "original_title": "Now in Beta: Generative Remove in Premiere",
+          "source_name": "Adobe",
+          "source_language": "en",
+          "source_published_at": "2026-11-04T19:40:00Z",
+          "review_status": "reviewed",
+          "verification_source_urls": [
+            "https://helpx.adobe.com/premiere/desktop/edit-projects/edit-with-generative-ai/generative-remove.html"
+          ],
+          "id": "curated-536326c6b2df53eb8eab",
+          "checked_at": "2026-11-08T09:33:50Z"
+        },
+        {
+          "title_zh": "After Effects 2027分批推送，加入AI助手与动态图层材质",
+          "what_zh": "Adobe于11月7日宣布After Effects 2027（27.0）开始分批推送。新版AI Assistant可按文字要求整理项目、编写和修复表达式、搭建合成；在Advanced 3D渲染器中，动画预合成、图像和视频也可用作3D对象的材质。",
+          "why_zh": "做动效的人可以关注两类实用变化：让助手处理重复的项目整理与表达式工作，以及把现有视频直接用于三维画面。正式项目仍适合先在副本中测试。",
+          "caveat_zh": "分批推送可能需要数日，不代表每个账号已经收到。官方计划11月10日公布完整发行说明；这些功能已可在最新beta中尝试。公告没有说明AI功能的具体额度或费用，不能据此称免费；订阅、系统兼容性和地区可用性仍需核对，本文未确认中国大陆账号可用情况。",
+          "category": "software",
+          "url": "https://community.adobe.com/announcements-527/after-effects-2027-27-0-is-on-its-way-1654670",
+          "original_title": "After Effects 2027 (27.0) is on its way!",
+          "source_name": "Adobe",
+          "source_language": "en",
+          "source_published_at": "2026-11-07T05:15:00Z",
+          "review_status": "reviewed",
+          "id": "curated-f423efab31252e849bf1",
+          "checked_at": "2026-11-08T09:33:50Z"
+        },
+        {
+          "title_zh": "GitHub更新Slack与Teams编码助手，Teams加入协作画布",
+          "what_zh": "GitHub于11月6日宣布Slack和Teams中的@GitHub正式可用，并推出Teams Canvas，可在对话旁查看实现计划、代码修改与预览。更新也简化了从消息识别仓库和启动会话的流程；助手可调查问题、创建issue、修改代码并提交PR。",
+          "why_zh": "已经在聊天里讨论需求或复现问题的团队，可以减少把上下文重新抄到开发工具的工作。把计划与代码放在对话旁，也便于同事一起复核，而不必直接接受生成结果。",
+          "caveat_zh": "需付费Copilot方案，并受应用安装权限、组织策略和仓库写入权限限制。官方文档说明会捕获整段对话作为上下文，并保存在生成的产物中，使用前要检查是否含不宜分享的信息。代码仍需人工审查；具体额度、费用和地区可用性以账号及服务条款为准，本文未确认中国大陆可用情况。",
+          "category": "software",
+          "url": "https://github.blog/changelog/2026-11-06-github-copilot-in-slack-and-teams-is-generally-available/",
+          "original_title": "@GitHub in Slack and Teams is generally available and more",
+          "source_name": "GitHub Changelog",
+          "source_language": "en",
+          "source_published_at": "2026-11-06",
+          "review_status": "reviewed",
+          "verification_source_urls": [
+            "https://docs.github.com/en/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-slack",
+            "https://docs.github.com/en/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-teams"
+          ],
+          "id": "curated-c6d4b65182abfa23507d",
+          "checked_at": "2026-11-08T09:33:50Z"
+        }
+      ]
     }
   ]
 }

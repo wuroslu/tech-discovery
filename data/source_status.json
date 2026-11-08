@@ -1,68 +1,68 @@
 {
   "schema_version": 1,
-  "attempted_at": "2026-11-08T09:37:48Z",
+  "attempted_at": "2026-11-08T10:12:04Z",
   "sources": {
+    "huggingface": {
+      "state": "ok",
+      "attempted_at": "2026-11-08T10:12:04Z",
+      "last_success_at": "2026-11-08T10:12:04Z",
+      "item_count": 66,
+      "error": null,
+      "consecutive_failures": 0
+    },
     "openai": {
       "state": "ok",
-      "attempted_at": "2026-11-08T09:37:48Z",
-      "last_success_at": "2026-11-08T09:37:48Z",
-      "item_count": 216,
+      "attempted_at": "2026-11-08T10:12:04Z",
+      "last_success_at": "2026-11-08T10:12:04Z",
+      "item_count": 214,
       "error": null,
       "consecutive_failures": 0
     },
     "arduino": {
       "state": "ok",
-      "attempted_at": "2026-11-08T09:37:48Z",
-      "last_success_at": "2026-11-08T09:37:48Z",
-      "item_count": 13,
-      "error": null,
-      "consecutive_failures": 0
-    },
-    "huggingface": {
-      "state": "ok",
-      "attempted_at": "2026-11-08T09:37:48Z",
-      "last_success_at": "2026-11-08T09:37:48Z",
-      "item_count": 67,
-      "error": null,
-      "consecutive_failures": 0
-    },
-    "hackaday": {
-      "state": "ok",
-      "attempted_at": "2026-11-08T09:37:48Z",
-      "last_success_at": "2026-11-08T09:37:48Z",
-      "item_count": 37,
-      "error": null,
-      "consecutive_failures": 0
-    },
-    "github": {
-      "state": "ok",
-      "attempted_at": "2026-11-08T09:37:48Z",
-      "last_success_at": "2026-11-08T09:37:48Z",
+      "attempted_at": "2026-11-08T10:12:04Z",
+      "last_success_at": "2026-11-08T10:12:04Z",
       "item_count": 13,
       "error": null,
       "consecutive_failures": 0
     },
     "google-ai": {
       "state": "ok",
-      "attempted_at": "2026-11-08T09:37:48Z",
-      "last_success_at": "2026-11-08T09:37:48Z",
+      "attempted_at": "2026-11-08T10:12:04Z",
+      "last_success_at": "2026-11-08T10:12:04Z",
       "item_count": 21,
       "error": null,
       "consecutive_failures": 0
     },
-    "raspberrypi": {
+    "hackaday": {
       "state": "ok",
-      "attempted_at": "2026-11-08T09:37:48Z",
-      "last_success_at": "2026-11-08T09:37:48Z",
-      "item_count": 12,
+      "attempted_at": "2026-11-08T10:12:04Z",
+      "last_success_at": "2026-11-08T10:12:04Z",
+      "item_count": 37,
+      "error": null,
+      "consecutive_failures": 0
+    },
+    "github": {
+      "state": "ok",
+      "attempted_at": "2026-11-08T10:12:04Z",
+      "last_success_at": "2026-11-08T10:12:04Z",
+      "item_count": 13,
       "error": null,
       "consecutive_failures": 0
     },
     "mozilla": {
       "state": "ok",
-      "attempted_at": "2026-11-08T09:37:48Z",
-      "last_success_at": "2026-11-08T09:37:48Z",
+      "attempted_at": "2026-11-08T10:12:04Z",
+      "last_success_at": "2026-11-08T10:12:04Z",
       "item_count": 20,
+      "error": null,
+      "consecutive_failures": 0
+    },
+    "raspberrypi": {
+      "state": "ok",
+      "attempted_at": "2026-11-08T10:12:04Z",
+      "last_success_at": "2026-11-08T10:12:04Z",
+      "item_count": 12,
       "error": null,
       "consecutive_failures": 0
     }

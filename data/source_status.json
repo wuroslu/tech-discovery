@@ -1,67 +1,67 @@
 {
   "schema_version": 1,
-  "attempted_at": "2026-11-07T10:11:46Z",
+  "attempted_at": "2026-11-08T09:35:43Z",
   "sources": {
     "huggingface": {
       "state": "ok",
-      "attempted_at": "2026-11-07T10:11:46Z",
-      "last_success_at": "2026-11-07T10:11:46Z",
-      "item_count": 68,
+      "attempted_at": "2026-11-08T09:35:43Z",
+      "last_success_at": "2026-11-08T09:35:43Z",
+      "item_count": 67,
       "error": null,
       "consecutive_failures": 0
     },
     "openai": {
       "state": "ok",
-      "attempted_at": "2026-11-07T10:11:46Z",
-      "last_success_at": "2026-11-07T10:11:46Z",
-      "item_count": 219,
+      "attempted_at": "2026-11-08T09:35:43Z",
+      "last_success_at": "2026-11-08T09:35:43Z",
+      "item_count": 216,
+      "error": null,
+      "consecutive_failures": 0
+    },
+    "google-ai": {
+      "state": "ok",
+      "attempted_at": "2026-11-08T09:35:43Z",
+      "last_success_at": "2026-11-08T09:35:43Z",
+      "item_count": 21,
+      "error": null,
+      "consecutive_failures": 0
+    },
+    "hackaday": {
+      "state": "ok",
+      "attempted_at": "2026-11-08T09:35:43Z",
+      "last_success_at": "2026-11-08T09:35:43Z",
+      "item_count": 37,
       "error": null,
       "consecutive_failures": 0
     },
     "arduino": {
       "state": "ok",
-      "attempted_at": "2026-11-07T10:11:46Z",
-      "last_success_at": "2026-11-07T10:11:46Z",
+      "attempted_at": "2026-11-08T09:35:43Z",
+      "last_success_at": "2026-11-08T09:35:43Z",
       "item_count": 13,
       "error": null,
       "consecutive_failures": 0
     },
     "github": {
       "state": "ok",
-      "attempted_at": "2026-11-07T10:11:46Z",
-      "last_success_at": "2026-11-07T10:11:46Z",
+      "attempted_at": "2026-11-08T09:35:43Z",
+      "last_success_at": "2026-11-08T09:35:43Z",
       "item_count": 13,
-      "error": null,
-      "consecutive_failures": 0
-    },
-    "hackaday": {
-      "state": "ok",
-      "attempted_at": "2026-11-07T10:11:46Z",
-      "last_success_at": "2026-11-07T10:11:46Z",
-      "item_count": 30,
-      "error": null,
-      "consecutive_failures": 0
-    },
-    "google-ai": {
-      "state": "ok",
-      "attempted_at": "2026-11-07T10:11:46Z",
-      "last_success_at": "2026-11-07T10:11:46Z",
-      "item_count": 21,
       "error": null,
       "consecutive_failures": 0
     },
     "mozilla": {
       "state": "ok",
-      "attempted_at": "2026-11-07T10:11:46Z",
-      "last_success_at": "2026-11-07T10:11:46Z",
+      "attempted_at": "2026-11-08T09:35:43Z",
+      "last_success_at": "2026-11-08T09:35:43Z",
       "item_count": 20,
       "error": null,
       "consecutive_failures": 0
     },
     "raspberrypi": {
       "state": "ok",
-      "attempted_at": "2026-11-07T10:11:46Z",
-      "last_success_at": "2026-11-07T10:11:46Z",
+      "attempted_at": "2026-11-08T09:35:43Z",
+      "last_success_at": "2026-11-08T09:35:43Z",
       "item_count": 12,
       "error": null,
       "consecutive_failures": 0

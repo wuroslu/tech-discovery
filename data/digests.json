@@ -343,6 +343,89 @@
           "checked_at": "2026-11-08T09:33:50Z"
         }
       ]
+    },
+    {
+      "date": "2026-11-09",
+      "status": "published",
+      "published_at": "2026-11-09T09:50:52Z",
+      "editor_note": "本期精选5条近期进展，覆盖Android智能应用、开发者工具、依赖维护与高端硬件；原文发布于11月3日至5日，均于11月9日核对。各条均保留预览、方案、权限、价格和地区限制，不把产品接入或厂商宣传写成普遍可用。",
+      "items": [
+        {
+          "title_zh": "GitHub Copilot接入Xcode内置编码助手，进入公开预览",
+          "what_zh": "GitHub于11月4日宣布，Copilot可直接用于Xcode内置编码助手，随Xcode 27.3 beta提供公开预览。需要运行macOS Tahoe 26.6或更高版本；所有Copilot方案均支持，原有GitHub Copilot for Xcode扩展仍是独立选项。",
+          "why_zh": "在Mac上开发Apple平台应用的人，可以先在原生Xcode工作流中试用Copilot，少一次在编辑器和外部扩展之间切换。是否值得长期使用，仍应以自己的代码库和审核流程测试。",
+          "caveat_zh": "这是公开预览，不是稳定版。需要安装Xcode 27.3 beta和macOS Tahoe 26.6以上；扩展与内置助手是两条不同路径。Copilot方案虽均支持，但账号、地区、用量与组织策略仍可能影响实际可用性。",
+          "category": "software",
+          "url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant/",
+          "original_title": "GitHub Copilot is now available in Xcode’s coding assistant",
+          "source_name": "GitHub Changelog",
+          "source_language": "en",
+          "source_published_at": "2026-11-04",
+          "id": "curated-90a687810bda510e404c",
+          "checked_at": "2026-11-09T09:50:52Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "GitHub Copilot进入JetBrains Air，可在云端委派编码任务",
+          "what_zh": "GitHub于11月3日宣布，JetBrains Air可以选择GitHub Copilot作为代理，在IDE或浏览器中委派任务、跟踪并行会话和审阅改动。云端任务使用Copilot方案额度而非JetBrains AI积分，并在新建虚拟机中的Docker容器运行。",
+          "why_zh": "同时维护多个项目或希望把较长编码任务交给云端的人，多了一条可比较的工作流。隔离环境还能减少代理安装依赖时对本地开发环境的影响。",
+          "caveat_zh": "云端任务需要JetBrains账号、启用Air Teams的企业组织、Copilot订阅和管理员开启权限；个人本地任务的条件不同。Air不能选择个人还是组织Copilot方案，实际额度、组织政策与地区可用性需另行核对。",
+          "category": "software",
+          "url": "https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air/",
+          "original_title": "GitHub Copilot is now available in JetBrains Air",
+          "source_name": "GitHub Changelog",
+          "source_language": "en",
+          "source_published_at": "2026-11-03",
+          "id": "curated-74ce49b66593e76901db",
+          "checked_at": "2026-11-09T09:50:52Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "Dependabot正式支持APM依赖版本更新",
+          "what_zh": "GitHub于11月3日宣布，Dependabot版本更新已正式支持Agent Package Manager（APM）。它会根据apm.yml中的受支持Git依赖创建更新拉取请求，并在存在时重新生成apm.lock.yaml；github.com上的所有GitHub方案均可使用。",
+          "why_zh": "把代理技能、提示词和指令放进代码库的团队，可以用现有依赖更新流程减少手动维护，及时看到上游版本变化并通过拉取请求审阅。",
+          "caveat_zh": "这项能力只处理版本更新，不是安全更新；需要在.github/dependabot.yml中配置apm条目和包含apm.yml的目录及计划。GitHub Enterprise Server要到3.24才提供，具体更新范围仍以支持的APM依赖类型为准。",
+          "category": "software",
+          "url": "https://github.blog/changelog/2026-11-03-dependabot-version-updates-support-agent-package-manager/",
+          "original_title": "Dependabot version updates support Agent Package Manager",
+          "source_name": "GitHub Changelog",
+          "source_language": "en",
+          "source_published_at": "2026-11-03",
+          "id": "curated-b4c7def7cee11ad18f5b",
+          "checked_at": "2026-11-09T09:50:52Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "Android开发者峰会带来MCP与端侧Agent工具链预览",
+          "what_zh": "Google于11月5日总结Android Developer Summit的新能力：开发者可用Android MCP和AppFunctions让应用接入Android智能系统，也可用ML Kit GenAI Agentic API构建端侧代理、用LiteRT in Google Play services运行自有模型，并用Firebase AI Logic连接云端模型。Jetpack Compose的A2UI渲染器进入alpha，Connected Apps Platform开放开发者预览申请。",
+          "why_zh": "做Android应用的人可以提前规划“让代理调用应用功能”和端云混合推理的架构，尤其适合需要本地数据、设备传感器或离线执行的场景。这比单独接入聊天接口更接近系统级多应用协作。",
+          "caveat_zh": "文章汇总的能力大多仍在预览：A2UI是alpha，Connected Apps需要加入等待名单且目前只向部分生产就绪应用开放，测试新预览模型还要加入AICore Developer Preview。Gemini Nano 4的速度和内存数字来自Google内部测试；实际设备、语言、地区、账号和API支持范围需逐项核对，本文未确认中国大陆可用性。",
+          "category": "software",
+          "url": "https://developer.android.google.cn/blog/posts/android-intelligence-system-in-app-agents-ads",
+          "original_title": "What’s new in intelligent apps at the Android Developer Summit",
+          "source_name": "Android Developers",
+          "source_language": "en",
+          "source_published_at": "2026-11-05",
+          "id": "curated-b595b7e938e32eb502d6",
+          "checked_at": "2026-11-09T09:50:52Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "Motorola Signature 27公布，首款支持GrapheneOS的摩托罗拉手机",
+          "what_zh": "Motorola于11月5日公布旗舰手机motorola signature 27，搭载Snapdragon 8 Elite Extreme Gen 6、7000mAh电池和1.5K tandem AMOLED屏幕，并宣布与GrapheneOS Foundation合作支持该系统。官方称手机将在未来数月逐步面向全球市场上市。",
+          "why_zh": "对在意大电池、长时间系统支持和可选隐私系统的Android用户，这是一个值得继续观察的硬件方向。GrapheneOS支持若按计划落地，可能让高端硬件与隐私系统有更直接的结合。",
+          "caveat_zh": "起始建议零售价为1599美元，全球上市时间、当地价格和中国大陆可用性尚未公布。亮度、相机和续航等数据包含厂商实验室或厂商引用的评测口径，不能等同于独立实测；GrapheneOS合作的更多细节尚待后续公布。Gemini、Qira等AI功能受地区、语言、账号、网络和可能的订阅条件限制。",
+          "category": "hardware",
+          "url": "https://motorolanews.com/motorola-signature-27-2/",
+          "original_title": "The motorola signature 27 sets a new flagship standard",
+          "source_name": "Motorola News",
+          "source_language": "en",
+          "source_published_at": "2026-11-05",
+          "id": "curated-8999a3402e0c38db1fc1",
+          "checked_at": "2026-11-09T09:50:52Z",
+          "review_status": "reviewed"
+        }
+      ]
     }
   ]
 }

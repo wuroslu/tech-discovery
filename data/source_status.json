@@ -1,67 +1,67 @@
 {
   "schema_version": 1,
-  "attempted_at": "2026-11-09T10:21:53Z",
+  "attempted_at": "2026-11-09T10:24:08Z",
   "sources": {
-    "huggingface": {
-      "state": "ok",
-      "attempted_at": "2026-11-09T10:21:53Z",
-      "last_success_at": "2026-11-09T10:21:53Z",
-      "item_count": 65,
-      "error": null,
-      "consecutive_failures": 0
-    },
     "openai": {
       "state": "ok",
-      "attempted_at": "2026-11-09T10:21:53Z",
-      "last_success_at": "2026-11-09T10:21:53Z",
+      "attempted_at": "2026-11-09T10:24:08Z",
+      "last_success_at": "2026-11-09T10:24:08Z",
       "item_count": 209,
       "error": null,
       "consecutive_failures": 0
     },
-    "arduino": {
+    "huggingface": {
       "state": "ok",
-      "attempted_at": "2026-11-09T10:21:53Z",
-      "last_success_at": "2026-11-09T10:21:53Z",
-      "item_count": 13,
-      "error": null,
-      "consecutive_failures": 0
-    },
-    "hackaday": {
-      "state": "ok",
-      "attempted_at": "2026-11-09T10:21:53Z",
-      "last_success_at": "2026-11-09T10:21:53Z",
-      "item_count": 44,
-      "error": null,
-      "consecutive_failures": 0
-    },
-    "github": {
-      "state": "ok",
-      "attempted_at": "2026-11-09T10:21:53Z",
-      "last_success_at": "2026-11-09T10:21:53Z",
-      "item_count": 13,
+      "attempted_at": "2026-11-09T10:24:08Z",
+      "last_success_at": "2026-11-09T10:24:08Z",
+      "item_count": 65,
       "error": null,
       "consecutive_failures": 0
     },
     "google-ai": {
       "state": "ok",
-      "attempted_at": "2026-11-09T10:21:53Z",
-      "last_success_at": "2026-11-09T10:21:53Z",
+      "attempted_at": "2026-11-09T10:24:08Z",
+      "last_success_at": "2026-11-09T10:24:08Z",
       "item_count": 21,
+      "error": null,
+      "consecutive_failures": 0
+    },
+    "hackaday": {
+      "state": "ok",
+      "attempted_at": "2026-11-09T10:24:08Z",
+      "last_success_at": "2026-11-09T10:24:08Z",
+      "item_count": 44,
+      "error": null,
+      "consecutive_failures": 0
+    },
+    "arduino": {
+      "state": "ok",
+      "attempted_at": "2026-11-09T10:24:08Z",
+      "last_success_at": "2026-11-09T10:24:08Z",
+      "item_count": 13,
+      "error": null,
+      "consecutive_failures": 0
+    },
+    "github": {
+      "state": "ok",
+      "attempted_at": "2026-11-09T10:24:08Z",
+      "last_success_at": "2026-11-09T10:24:08Z",
+      "item_count": 13,
       "error": null,
       "consecutive_failures": 0
     },
     "mozilla": {
       "state": "ok",
-      "attempted_at": "2026-11-09T10:21:53Z",
-      "last_success_at": "2026-11-09T10:21:53Z",
+      "attempted_at": "2026-11-09T10:24:08Z",
+      "last_success_at": "2026-11-09T10:24:08Z",
       "item_count": 20,
       "error": null,
       "consecutive_failures": 0
     },
     "raspberrypi": {
       "state": "ok",
-      "attempted_at": "2026-11-09T10:21:53Z",
-      "last_success_at": "2026-11-09T10:21:53Z",
+      "attempted_at": "2026-11-09T10:24:08Z",
+      "last_success_at": "2026-11-09T10:24:08Z",
       "item_count": 12,
       "error": null,
       "consecutive_failures": 0

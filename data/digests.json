@@ -426,6 +426,107 @@
           "review_status": "reviewed"
         }
       ]
+    },
+    {
+      "date": "2026-11-10",
+      "status": "published",
+      "published_at": "2026-11-10T09:39:12Z",
+      "editor_note": "本期精选5条11月9日发布的消息，覆盖浏览器安全、编程模型、地图原型、机器人研究与国内开源编程工具；原文于11月10日核对，分别标明费用、预览阶段与实际开放限制。",
+      "items": [
+        {
+          "title_zh": "Chrome修复已被利用的漏洞，桌面与Android版开始更新",
+          "what_zh": "Google于11月9日发布Chrome稳定版更新，修复9项安全问题，并确认CVE-2026-125350已出现实际利用。Windows和Mac更新至157.0.8103.50/.51，Linux为.50；Android版.50也开始推送，官方说明包含对应桌面版的安全修复。",
+          "why_zh": "这是比新增功能更值得先处理的更新。日常用Chrome登录账号、购物或处理工作的用户，可以检查版本并完成更新，桌面版按提示重启浏览器。",
+          "caveat_zh": "桌面更新将分批推送数天至数周，Android版经Google Play在数日内推送；收到更新的时间可能不同。公告未说明攻击规模或具体受害对象，也未单独确认中国大陆分发情况；请使用可信官方更新渠道。",
+          "category": "software",
+          "url": "https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_018223192.html",
+          "original_title": "Stable Channel Update for Desktop",
+          "source_name": "Google Chrome Releases",
+          "source_language": "en",
+          "source_published_at": "2026-11-09",
+          "verification_source_urls": [
+            "https://chromereleases.googleblog.com/2026/11/chrome-for-android-update_01533302390.html"
+          ],
+          "id": "curated-d04dac496c5818ec76f5",
+          "checked_at": "2026-11-10T09:37:48Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "Claude Fable 5.2发布并接入Copilot，使用前留意费用与数据保留",
+          "what_zh": "Anthropic于11月9日发布Claude Fable 5.2和Mythos 5.2，称其编码、推理与视觉能力有所提升。Fable面向普通用户，Mythos仍需机构审核。标准API每百万输入/输出token为8/40美元，快速模式为16/80美元；GitHub同日宣布Fable 5.2进入Copilot。",
+          "why_zh": "做代码迁移、调试或较长编程任务的人多了一个可比较的模型。更实用的评估是自己项目的完成质量、总费用和数据要求，而不是只看厂商演示。",
+          "caveat_zh": "性能提升为厂商自述，本站未实测。Copilot向Pro+、Max、Business和Enterprise分批开放，企业管理员需启用。默认保留提示词和输出用于安全监测，不用于训练；部分企业可获零保留安排。模型API价格不等于订阅总价，地区与账号资格仍需核对，本文未确认中国大陆可用。",
+          "category": "ai",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "original_title": "Introducing Claude Fable 5.2 and Claude Mythos 5.2",
+          "source_name": "Anthropic",
+          "source_language": "en",
+          "source_published_at": "2026-11-09",
+          "verification_source_urls": [
+            "https://github.blog/changelog/2026-11-09-claude-fable-5-2-in-github-copilot/"
+          ],
+          "id": "curated-a989f1582084d0cf153c",
+          "checked_at": "2026-11-10T09:37:48Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "AI Studio接入Google Maps，可免绑卡制作地图应用原型",
+          "what_zh": "Google于11月9日宣布，可在AI Studio中用文字描述地图应用，由工具配置Maps接口和密钥，在预览中显示地图、地点或路线。Maps Demo Key无需信用卡或Cloud计费账号，每个API每天有100次调用额度。",
+          "why_zh": "想做旅行路线、门店地图或环境信息小工具的人，可以先验证界面和交互，再决定是否投入开发。地图数据接入的起步步骤少了，但生成结果仍需要自己检查。",
+          "caveat_zh": "免费额度用于原型与测试，不是不限量生产服务；新用户与已有Cloud用户可用的演示接口范围不同，Route Optimization、Solar和Nav Connect不在演示范围内。正式使用或扩大配额需接入计费Cloud项目；各API数据覆盖与AI Studio地区限制仍适用，本文未确认中国大陆可用。",
+          "category": "software",
+          "url": "https://developers.googleblog.com/from-prompt-to-app-build-with-google-maps-in-ai-studio/",
+          "original_title": "From prompt to app: Build with Google Maps in AI Studio",
+          "source_name": "Google Developers",
+          "source_language": "en",
+          "source_published_at": "2026-11-09",
+          "verification_source_urls": [
+            "https://developers.google.com/maps/ai/ai-studio"
+          ],
+          "id": "curated-cb1f592a974901d2d02a",
+          "checked_at": "2026-11-10T09:37:48Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "NVIDIA展示GR00T 2机器人模型，代码计划12月开放",
+          "what_zh": "NVIDIA于11月9日介绍GR00T 2，让模型同时预测未来画面和机器人动作，展示了从人类演示向机械夹爪、灵巧手和人形机器人迁移技能的研究。官方项目页称，在50项测试任务中，每项补充5次示范后平均成功率达95%；代码标注为12月提供。",
+          "why_zh": "机器人不仅要听懂指令，还要处理接触、位置偏差和连续动作。这项研究值得观察的是能否减少每换一种机器或任务就重新采集大量数据的成本。",
+          "caveat_zh": "成功率来自团队特定实验，未经本站独立复现，不能推及任意家务或生产环境。当前可阅读研究和演示，不能写成GR00T 2代码已经发布或消费机器人已经上市；复现仍需要适配硬件、数据与算力，许可和最终开放范围待发布时核对。",
+          "category": "ai",
+          "url": "https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/",
+          "original_title": "Practice Makes Precise: At CoRL, NVIDIA and Partners Reveal How Robots Rehearse Delicate Work in Simulation",
+          "source_name": "NVIDIA",
+          "source_language": "en",
+          "source_published_at": "2026-11-09",
+          "verification_source_urls": [
+            "https://research.nvidia.com/labs/gear/gr00t-2/"
+          ],
+          "id": "curated-61e7ac7c7e624eb36dec",
+          "checked_at": "2026-11-10T09:37:48Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "Qwen Code更新：定时任务可在网页端选择聊天投递目标",
+          "what_zh": "Qwen团队于11月9日发布Qwen Code v0.27.1。Web Shell的定时任务界面可选择已配置的聊天渠道和用户或群目标，投递成功运行的最终回复；新版也允许配置子代理默认是否后台执行，并新增用户级LSP启用设置。",
+          "why_zh": "自己搭建编程助手的人，可以少写一些定时结果转发的配置，也能按任务选择等待子代理返回还是让它在后台运行。LSP提供代码导航和诊断入口，便于代理理解项目。",
+          "caveat_zh": "Web Shell所用daemon和LSP仍属实验性功能；投递默认关闭，需配置渠道与目标，不保证送达。LSP还需安装并配置语言服务器。模型服务的费用、配额与地区限制要单独核对，开源客户端不代表模型调用免费；自动任务应限制权限并避免发送敏感代码。",
+          "category": "software",
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.27.1",
+          "original_title": "Release v0.27.1",
+          "source_name": "QwenLM / Qwen Code",
+          "source_language": "en",
+          "source_published_at": "2026-11-09T13:30:44Z",
+          "verification_source_urls": [
+            "https://github.com/QwenLM/qwen-code/pull/16524",
+            "https://github.com/QwenLM/qwen-code/pull/15178",
+            "https://github.com/QwenLM/qwen-code/blob/v0.27.1/docs/users/features/lsp.md",
+            "https://github.com/QwenLM/qwen-code/blob/v0.27.1/docs/users/qwen-serve.md"
+          ],
+          "id": "curated-b1a661286db2f1a827b0",
+          "checked_at": "2026-11-10T09:37:48Z",
+          "review_status": "reviewed"
+        }
+      ]
     }
   ]
 }

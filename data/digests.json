@@ -527,6 +527,102 @@
           "review_status": "reviewed"
         }
       ]
+    },
+    {
+      "date": "2026-11-11",
+      "status": "published",
+      "published_at": "2026-11-11T09:42:40Z",
+      "editor_note": "本期精选5条，覆盖国内模型、开源系统、Android与创作工具。原文于11月11日核对；预览、正式开放、收费和地区限制分别说明。",
+      "items": [
+        {
+          "title_zh": "Qwen4-Max-Preview限时开放，个人套餐有调用与数据限制",
+          "what_zh": "阿里云百炼文档列明，Qwen4-Max-Preview于北京时间11月11日10:00至11月25日24:00提供预览，支持文本、图片和视频理解、工具调用及结构化输出。接入仅限Token Plan订阅，不支持按量计费，预览结束后将下线。",
+          "why_zh": "在编程工具中结合截图、文档和代码工作的用户，多了一个可测试的国内模型。试用前先确认套餐是否允许自己的使用方式，并为预览结束后的切换留出时间。",
+          "caveat_zh": "文档未单列发文时间，原文日期按预览开放日记录；能力未经本站实测。个人版目前仅支持北京地域，按Credits扣额度，禁止自动化脚本、自建应用后端和非交互式批量调用。其条款允许将输入与生成内容用于服务改进和模型优化，敏感代码或资料不宜直接上传；团队版需另查对应条款。",
+          "category": "ai",
+          "url": "https://docs.bailian.console.aliyun.com/zh/model-studio/qwen4-max-preview",
+          "original_title": "最新模型：Qwen4-Max-Preview",
+          "source_name": "阿里云百炼",
+          "source_language": "zh",
+          "source_published_at": "2026-11-11",
+          "verification_source_urls": [
+            "https://docs.bailian.console.aliyun.com/zh/model-studio/token-plan-personal-overview"
+          ],
+          "id": "curated-9b63cbbd704519620e59",
+          "checked_at": "2026-11-11T09:40:41Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "Pixel 10开始获得Gemini Intelligence，11月更新分批推送",
+          "what_zh": "Google于11月10日启动11月Pixel Drop，在随后数周分批推送。Pixel 10系列开始获得Gemini Intelligence，包括整理语音输入的Rambler和多步骤任务处理；用文字描述创建个性化小组件的功能也将逐步开放，任务自动化扩展至英国、印度和日本。",
+          "why_zh": "这次更新把手机AI带向输入整理和日常操作，已有Pixel 10的用户不必只盯着换机。更值得试的是它能否省掉自己的重复步骤，以及每次操作是否方便检查。",
+          "caveat_zh": "Pixel 10a不在相关支持范围。Gemini Intelligence需设置并使用Gemini应用，限指定国家、语言及18岁以上用户，功能因机型而异；部分能力提高用量可能需订阅。不同功能开放进度不同，本文未确认中国大陆可用；涉及订单、出行或个人信息时应核对结果。",
+          "category": "software",
+          "url": "https://blog.google/products-and-platforms/devices/pixel/november-2026-pixel-drop/",
+          "original_title": "Pixel 10 with Gemini Intelligence, custom widgets, and more in our November Pixel Drop",
+          "source_name": "Google",
+          "source_language": "en",
+          "source_published_at": "2026-11-10",
+          "verification_source_urls": [
+            "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/"
+          ],
+          "id": "curated-d2cb458382e2b59123ed",
+          "checked_at": "2026-11-11T09:40:41Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "Firefly新增局部修图与快捷操作，设计和工作流工具仍在测试",
+          "what_zh": "Adobe于11月10日扩展Firefly：图片文字修改、修饰、重新打光和Quick Actions已正式开放。Firefly Design把多种设计能力放在同一画布，Firefly Graph用于组合可重复执行的创作流程，两者仍为beta；生成网站或应用原型的Builder为私测。",
+          "why_zh": "做封面、产品图或社交视频的人，可以先试局部修改和固定流程，看看能否减少在不同软件间来回操作。批量出图前，仍要检查文字、人物细节与品牌一致性。",
+          "caveat_zh": "Builder需候补申请，不是人人已可使用；其余未列为正式开放的新功能也处于beta。免费版每天生成次数有限，付费套餐及高级模型受积分额度约束，消耗随功能和模型变化。价格、账号与地区支持以当地页面为准，本文未确认中国大陆可用。",
+          "category": "software",
+          "url": "https://news.adobe.com/news/2026/11/adobe-firefly-expands",
+          "original_title": "Adobe Firefly Expands as the AI Creative Studio, Bringing Adobe’s Trusted Creative Tools to Every Creator",
+          "source_name": "Adobe",
+          "source_language": "en",
+          "source_published_at": "2026-11-10",
+          "verification_source_urls": [
+            "https://www.adobe.com/products/firefly/plans.html?locale=en-US",
+            "https://helpx.adobe.com/creative-cloud/apps/generative-ai/generative-credits-faq.html"
+          ],
+          "id": "curated-019a92f16bc619053ae6",
+          "checked_at": "2026-11-11T09:40:41Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "deepin 25.3.0发布，新增防卡死保护与更灵活的快照恢复",
+          "what_zh": "deepin于11月11日发布25.3.0。新增防卡死保护，严重卡顿时仍可唤起任务栏、启动器和系统监视器；磐石系统快照可保存到本地磁盘、U盘或移动硬盘并从指定位置恢复。镜像默认加入电脑管家，也更新了内核和硬件适配。",
+          "why_zh": "想尝试国产Linux桌面或已在使用deepin的人，可以重点关注故障处理和恢复流程是否更顺手。比起只看新功能，先验证常用软件、显卡和外设兼容性更有用。",
+          "caveat_zh": "官网已提供25.3.0下载，RISC-V仍标为技术预览；ARM处理器和部分显卡有限制，龙芯版面向3A5000及以上设备。官方仍列有图片查看器缩放时内存增长等已知问题。升级前备份重要文件，系统快照不能替代独立备份；稳定性提升未经本站实测。",
+          "category": "software",
+          "url": "https://www.deepin.org/en/deepin-25-3-release/",
+          "original_title": "deepin 25.3.0 Release Note",
+          "source_name": "deepin 深度科技社区",
+          "source_language": "en",
+          "source_published_at": "2026-11-11",
+          "verification_source_urls": [
+            "https://www.deepin.org.cn/zh/download/"
+          ],
+          "id": "curated-86f3389ca561aabf4a8e",
+          "checked_at": "2026-11-11T09:40:41Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "Gemini 4 Carbon开放付费API，优惠价将在11月底结束",
+          "what_zh": "Google于11月10日向付费开发者和企业开放Gemini 4 Carbon API，重点面向复杂文档、编程与长任务。公开版API推广价为每百万输入/输出token 2/10美元，11月30日优惠结束后为4/20美元；Google AI Ultra用户也将陆续在相关应用中获得访问。",
+          "why_zh": "需要处理复杂代码库或多份文档的开发者，多了一个可比较的模型。评估时应同时看任务完成质量、总token消耗和优惠结束后的成本，而不是只比较榜单或单次报价。",
+          "caveat_zh": "能力与成本优势为Google披露，本站未独立实测。Antigravity的多代理/swarm仍为预览；API计费与Ultra订阅是不同入口，应用开放为分批进行，地区和账号限制仍适用，本文未确认中国大陆可用。研究者免费项目需要申请筛选，并非所有用户免费。",
+          "category": "ai",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+          "original_title": "Gemini 4 Carbon is now available",
+          "source_name": "Google DeepMind",
+          "source_language": "en",
+          "source_published_at": "2026-11-10",
+          "id": "curated-5d3f1a46c035f064c1e8",
+          "checked_at": "2026-11-11T09:40:41Z",
+          "review_status": "reviewed"
+        }
+      ]
     }
   ]
 }

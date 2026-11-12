@@ -623,6 +623,87 @@
           "review_status": "reviewed"
         }
       ]
+    },
+    {
+      "date": "2026-11-12",
+      "status": "published",
+      "published_at": "2026-11-12T09:39:53Z",
+      "editor_note": "本期精选4条，关注编程工具、图像创作、语音转写与AI接口。原文于11月12日核对；Qwen Code 1.0为此前0.27.1之后的实质更新，仍处预览阶段。",
+      "items": [
+        {
+          "title_zh": "Qwen Code 1.0预览融合Qoder能力，安装不再单独依赖Node.js",
+          "what_zh": "Qwen团队于11月11日发布Qwen Code 1.0 Preview，结合Qoder与Qwen Code的代码理解、实现、调试和测试能力。新版提供macOS、Linux、Windows原生安装包，无需另外安装Node.js，并支持Qwen或Qoder账户、多种模型服务和会话恢复。",
+          "why_zh": "对想试终端编程助手的人，独立安装包降低了环境准备的门槛。已有用户也可以比较新版本对项目理解和调试的帮助，但应先在副本或分支上验证工作流。",
+          "caveat_zh": "这是1.0预览版，接口、配置和行为仍可能改变，不宜直接替换重要项目的稳定环境。客户端可下载不等于模型调用免费；账户套餐、API计费、配额与地区限制取决于所选服务，运行自动任务还应核对其条款与文件访问权限。",
+          "category": "software",
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v1.0.0-preview",
+          "original_title": "Release v1.0.0-preview",
+          "source_name": "QwenLM / Qwen Code",
+          "source_language": "en",
+          "source_published_at": "2026-11-11T03:55:44Z",
+          "verification_source_urls": [
+            "https://qwenlm.github.io/qwen-code-docs/zh/users/configuration/auth/"
+          ],
+          "checked_at": "2026-11-12T09:39:53Z",
+          "review_status": "reviewed",
+          "id": "curated-3dfc9f353bfc10d6f9fb"
+        },
+        {
+          "title_zh": "MiniMax开放H3-Image图像模型权重，4K创作需留意授权范围",
+          "what_zh": "MiniMax于11月11日发布H3-Image，开放模型权重，支持文生图、参考图生成与图像编辑，可使用最多16张参考图，输出4096×4096图像。官方同时提供API、MiniMax Code和海螺AI入口。",
+          "why_zh": "需要高分辨率素材或多张参考图保持风格的创作者，多了一个可评估和定制的模型。真正实用与否，还要看细节、文字准确性及自己的硬件和工作流。",
+          "caveat_zh": "开放权重采用受限社区许可，排除美国、欧盟、英国和韩国，地域限制也涉及输出。向第三方提供托管服务，或自身或关联方年化收入超过100万美元，均需事先另获书面授权。效果与速度为厂商自述；自部署有算力成本，API收费，上线周优惠不是长期价格。",
+          "category": "ai",
+          "url": "https://www.minimax.io/blog/minimax-h3-image",
+          "original_title": "MiniMax H3-Image: Bringing 4K Image Generation into the 10-Second Era",
+          "source_name": "MiniMax",
+          "source_language": "en",
+          "source_published_at": "2026-11-11",
+          "verification_source_urls": [
+            "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image/blob/main/LICENSE"
+          ],
+          "checked_at": "2026-11-12T09:39:53Z",
+          "review_status": "reviewed",
+          "id": "curated-0e365028518c38e91ece"
+        },
+        {
+          "title_zh": "Scribe v3与Live开放，录音和实时转写加强说话人区分",
+          "what_zh": "ElevenLabs于11月10日推出Scribe v3和v3 Live，分别面向录音与实时转写，均已提供API。Live首次加入实时说话人标签，并改进对话轮次检测；v3支持最多1000个关键词提示，帮助处理名称和术语。",
+          "why_zh": "制作播客字幕、整理访谈或开发语音工具时，分清谁说了什么和保留专有名词，往往比只看识别率更有用。可以用自己的多人录音检查是否减少后续人工修正。",
+          "caveat_zh": "准确率提升来自厂商测试，本站未独立实测。API未税基础价为每音频小时0.20美元，Live为0.22美元；关键词提示、词库与转写编辑等附加项另计费。默认处理区域为美国，其他数据驻留环境面向企业；上传前应取得录音和处理许可，核对数据保留、账号和地区限制，本文未确认中国大陆可用。",
+          "category": "ai",
+          "url": "https://elevenlabs.io/blog/scribe-v3",
+          "original_title": "Introducing Scribe v3 and v3 Live, our most accurate speech to text models",
+          "source_name": "ElevenLabs",
+          "source_language": "en",
+          "source_published_at": "2026-11-10",
+          "verification_source_urls": [
+            "https://elevenlabs.io/pricing/api"
+          ],
+          "checked_at": "2026-11-12T09:39:53Z",
+          "review_status": "reviewed",
+          "id": "curated-029532486be3d7c3a122"
+        },
+        {
+          "title_zh": "Google推出Gemini Decisions API，让程序直接获得分类与评分",
+          "what_zh": "Google于11月11日推出Gemini Decisions API，可对文本、图片、音频、视频和PDF回答预先限定的是非、选择或评分问题，一次最多1000题。它返回概率和置信度，不生成回答文本；付费档每百万输入token为0.10美元，无输出token费用。",
+          "why_zh": "做文件分类、内容筛选或为助手选择工具时，开发者可以少写一层解析生成文本的代码。对于不确定或选项不合适的输入，仍应设计兜底选项和人工检查。",
+          "caveat_zh": "目前通过Gemini Developer API的v1beta提供，Google Cloud支持尚待推出。免费档有额度限制，内容可用于改进产品；付费与免费数据政策不同，勿直接上传敏感资料。问题说明也计入输入token，置信度不保证正确；账号与地区限制仍适用，本文未确认中国大陆可用。",
+          "category": "ai",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+          "original_title": "Gemini Decisions API: Fast, calibrated multimodal decisions",
+          "source_name": "Google DeepMind",
+          "source_language": "en",
+          "source_published_at": "2026-11-11",
+          "verification_source_urls": [
+            "https://aistudio.google.com/docs/decisions-api",
+            "https://aistudio.google.com/docs/pricing#gemini-decision"
+          ],
+          "checked_at": "2026-11-12T09:39:53Z",
+          "review_status": "reviewed",
+          "id": "curated-c06fca3b9549fb95708d"
+        }
+      ]
     }
   ]
 }

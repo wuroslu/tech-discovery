@@ -704,6 +704,82 @@
           "id": "curated-c06fca3b9549fb95708d"
         }
       ]
+    },
+    {
+      "date": "2026-11-13",
+      "status": "published",
+      "published_at": "2026-11-13T09:30:37Z",
+      "editor_note": "本期精选4条，覆盖国内模型、编程工具、数据库维护与智能眼镜。原文发布于11月11日至12日，均于11月13日核对；ERNIE后训练预览版是此前Base模型的实质进展，权重仍待开放。",
+      "items": [
+        {
+          "title_zh": "ERNIE 5.5 Flash Preview上线API，后训练版本面向编程与创作",
+          "what_zh": "百度于11月11日发布ERNIE 5.5 Flash Preview，为此前Base模型的首个后训练版本，支持100万token上下文。千帆API已上线，官方展示了借助工具完成游戏开发、3D建模与视频创作的案例，并计划在11月25日前开放权重。",
+          "why_zh": "此前Base主要供继续训练，这次已有可调用的后训练版本。想做小游戏、网页或程序化建模的读者，可以用自己的小任务评估代码质量与修改成本。",
+          "caveat_zh": "仍是预览版，演示和性能来自厂商，本站未独立实测；权重尚未开放。千帆按量收费，11月30日前每百万token高峰输入/输出为1/4元，空闲时段为0.5/2元，到期恢复原价。需千帆账号及相应权限，调用前核对计费、数据政策和商用条款。",
+          "category": "ai",
+          "url": "https://ernie.baidu.com/zh/release/ernie-5-5-flash-preview/",
+          "original_title": "ERNIE 5.5 Flash Preview",
+          "source_name": "百度文心",
+          "source_language": "zh",
+          "source_published_at": "2026-11-11",
+          "verification_source_urls": [
+            "https://ernie.baidu.com/zh/research/",
+            "https://cloud.baidu.com/product/qianfan_home/model_3.html"
+          ],
+          "id": "curated-49ab05b27c45fb214e01",
+          "checked_at": "2026-11-13T09:30:37Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "Gemini 4 Hydrogen开放，编程任务可选择四档思考深度",
+          "what_zh": "Google于11月12日发布Gemini 4 Hydrogen，面向日常编程与多步骤工具任务，提供四档思考深度和100万token上下文。模型已进入AI Studio与Gemini API，开发者也可从Android Studio接入；Antigravity中的使用面向付费Pro和Ultra订阅者。",
+          "why_zh": "写代码、调试和制作交互原型时，可以按任务复杂程度选择思考深度，在等待时间和成本之间取舍。是否减少返工，仍需用自己的项目和测试验证。",
+          "caveat_zh": "API免费档有速率限制；付费标准价每百万输入/输出token为1.50/7.50美元，输出计费含思考token，Google搜索辅助另收费。性能提升为官方测试结果，地区、账号及数据处理政策仍适用，本文未确认中国大陆可用。",
+          "category": "ai",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+          "original_title": "Introducing Gemini 4 Hydrogen",
+          "source_name": "Google DeepMind",
+          "source_language": "en",
+          "source_published_at": "2026-11-12",
+          "verification_source_urls": [
+            "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-hydrogen/",
+            "https://aistudio.google.com/docs/whats-new-gemini-4-hydrogen"
+          ],
+          "id": "curated-80edea19d5fdcf288e59",
+          "checked_at": "2026-11-13T09:30:37Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "PostgreSQL发布安全更新，14系列迎来最后一个版本",
+          "what_zh": "PostgreSQL于11月12日发布18.7、17.12、16.16、15.20和14.25，修复安全漏洞与多项错误。14.25是14系列最后一次更新，此后不再获得安全和缺陷修复；同日发布的19 RC 2仍是候选版。",
+          "why_zh": "维护个人网站、自托管应用或数据库练习环境时，这类更新比新功能更值得检查。仍用14系列的项目需要安排迁移，而不是只装完最后一个补丁就长期不管。",
+          "caveat_zh": "升级前先备份并阅读对应版本说明。部分索引需按条件重建，使用增量备份者应在更新后做一次新的完整备份；跨大版本迁移另有步骤。PostgreSQL本身免费开源，托管服务和迁移运维可能收费，云平台的上线时间由各服务商决定。",
+          "category": "software",
+          "url": "https://www.postgresql.org/about/news/postgresql-187-1712-1616-1520-1425-and-19-rc-2-released-3442/",
+          "original_title": "PostgreSQL 18.7, 17.12, 16.16, 15.20, 14.25, and 19 RC 2 Released!",
+          "source_name": "PostgreSQL Global Development Group",
+          "source_language": "en",
+          "source_published_at": "2026-11-12",
+          "id": "curated-8ff2925fdd63cbda4b18",
+          "checked_at": "2026-11-13T09:30:37Z",
+          "review_status": "reviewed"
+        },
+        {
+          "title_zh": "Google合作智能眼镜开启预订，首发账号限美国与韩国",
+          "what_zh": "Google于11月12日宣布与Warby Parker、Gentle Monster和三星合作的智能眼镜开始预订，计划12月10日开售。两品牌起价分别为395和449美元，可借助Gemini进行语音问答、翻译和拍摄，并与兼容手机配合使用。",
+          "why_zh": "对Android和随手创作感兴趣的读者，这是一种把问答与拍摄移到眼镜上的新入口。值得观察实际佩戴、收音与续航体验，不必仅凭演示急着购买。",
+          "caveat_zh": "仅支持美国或韩国的18岁以上兼容Google账号，未面向中国大陆账号开放。手机需满足官方机型和系统要求，包括Pixel 7及以后指定系统、指定Galaxy系列或iPhone 13 Pro及以后；部分功能首发仅支持Android，配镜、会员或订阅可能另收费。拍摄时应尊重旁人隐私。",
+          "category": "hardware",
+          "url": "https://blog.google/innovation-and-ai/technology/xr-ar/google-intelligent-eyewear-collections-pre-order/",
+          "original_title": "See our intelligent eyewear lineup and pre-order your pair",
+          "source_name": "Google",
+          "source_language": "en",
+          "source_published_at": "2026-11-12",
+          "id": "curated-feb34ac37e8e9bbc9efe",
+          "checked_at": "2026-11-13T09:30:37Z",
+          "review_status": "reviewed"
+        }
+      ]
     }
   ]
 }
